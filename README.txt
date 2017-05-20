@@ -1,13 +1,13 @@
-Massively by HTML5 UP
+Forty by HTML5 UP
 html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
 
-This is Massively, a text-heavy, article-oriented design built around a huge background
-image (with a new parallax implementation I'm testing) and scroll effects (powered by
-Scrollex). A *slight* departure from all the one-pagers I've been doing lately, but one
-that fulfills a few user requests and makes use of some new techniques I've been wanting
-to try out. Enjoy it :)
+This is Forty, my latest and greatest addition to HTML5 UP and, per its incredibly
+creative name, my 40th (woohoo)! It's built around a grid of "image tiles" that are
+set up to smoothly transition to secondary landing pages (for which a separate page
+template is provided), and includes a number of neat effects (check out the menu!),
+extra features, and all the usual stuff you'd expect. Hope you dig it!
 
 Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
 you can use for pretty much whatever.
@@ -28,6 +28,8 @@ Credits:
 
 	Other:
 		jQuery (jquery.com)
+		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
+		background-size polyfill (github.com/louisremi)
 		Misc. Sass functions (@HugoGiraudel)
+		Respond.js (j.mp/respondjs)
 		Skel (skel.io)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
