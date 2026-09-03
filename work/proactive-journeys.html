@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Proactive Journeys Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Joseph Emmi</a>
+    <nav class="nav-links">
+      <a href="../about.html">About</a>
+      <a href="../work.html" class="active">Work</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../writing.html">Writing</a>
+      <a href="../photography.html">Photography</a>
+      <a href="../now.html">Now</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Toggle theme" onclick="document.documentElement.classList.toggle('dark')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Case study for Weir, 2021 to 2022</p>
+    <h1 class="hero-title">Proactive Journeys: A faster and simpler way for users to get access</h1>
+    <p class="lede">A feature that provides self-service sign-up and access requests for Weir's Customer Portal. I took it from discovery to a shipped, tested release.</p>
+  </div>
+  <div class="wrap wide">
+    <div class="cover">
+      <div class="chrome"><i></i><i></i><i></i></div>
+      <img src="../images/work/proactive-journeys/proactive-journeys-01-9634340aeb.jpg" alt="Sign-up screen for YOUR.WEIR over an industrial site photo">
+    </div>
+    <p class="eyebrow metrics-label">Key success metrics</p>
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="num">2 steps</div>
+        <div class="stat-label-mono">Down from around 8</div>
+        <p class="stat-explain">Sign up, then request access. What used to run through several people and manual checks now takes two steps from the user.</p>
+      </div>
+      <div class="stat">
+        <div class="num">10 minutes</div>
+        <div class="stat-label-mono">Average, down from weeks</div>
+        <p class="stat-explain">Roughly how long it takes, in an ideal case, for a user to sign up, request access, and get approved.</p>
+      </div>
+      <div class="stat">
+        <div class="num">95%</div>
+        <div class="stat-label-mono">Average adoption</div>
+        <p class="stat-explain">Average adoption of the self-service journeys, with invitations still used for a small set of strategic accounts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block tight">
+  <div class="wrap">
+    <p class="eyebrow">The task</p>
+    <h2 class="section-title">The only way in was an invitation</h2>
+    <p class="section-desc">Getting access meant asking a team leader or account manager, who emailed an App Manager, who worked through several manual checks before sending anything. I designed a self-service layer that replaces most of that, while keeping invitations for the accounts that sales is actively managing.</p>
+    <div class="flip-list">
+      <div class="flip-row"><span class="before">Request by email chain</span><span class="arrow">→</span><span class="after">Request in the portal</span></div>
+      <div class="flip-row"><span class="before">Days to weeks to hear back</span><span class="arrow">→</span><span class="after">10 minutes on average</span></div>
+      <div class="flip-row"><span class="before">Invitation only onboarding</span><span class="arrow">→</span><span class="after">Self-service, invitations kept for strategic accounts</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block tight">
+  <div class="wrap">
+    <p class="eyebrow">Who it served</p>
+    <h2 class="section-title">Three roles. Not the same problem</h2>
+    <div class="archetype-list">
+      <div class="card"><span class="role">End User / Viewer</span><p>Just needs into an app. Often didn't know how to ask, or who the App Manager even was.</p></div>
+      <div class="card"><span class="role">App Manager</span><p>Reviews and assigns access for their own apps, manually, per user, per site.</p></div>
+      <div class="card"><span class="role">App Admin / Owner</span><p>Same job as a Manager, across every app a business entity owns.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap wide">
+    <p class="eyebrow">The process</p>
+    <h2 class="section-title">Ten stages, run once, then looped per release</h2>
+    <p class="section-desc">Understanding the system first, then the users, then the build. Each stage feeding the next.</p>
+  </div>
+
+  <div class="wrap wide" style="margin-top: 36px;">
+
+    <div class="step">
+      <div class="rail"><div class="dot">1</div><div class="line"></div></div>
+      <div class="step-body">
+        <h3>Understanding IAM</h3>
+        <ul>
+          <li>One IAM service, a portal, and a "mini IAM" behind every app</li>
+          <li>Mapped the existing login and registration journeys first</li>
+        </ul>
+        <div class="step-visual grid-2">
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-02-6245e6b0f0.png" alt="IAM ecosystem and permission hierarchy diagram"></div></figure>
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-03-7a79fe1ba7.png" alt="Existing login and registration journey map"></div></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="rail"><div class="dot">2</div><div class="line"></div></div>
+      <div class="step-body">
+        <h3>Talking to users</h3>
+        <ul>
+          <li>End users were hard to reach early on, so I started with global App Managers</li>
+          <li>They review requests constantly, close enough to speak for the users on the other side</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="rail"><div class="dot">3</div><div class="line"></div></div>
+      <div class="step-body">
+        <h3>Define role archetypes</h3>
+        <ul>
+          <li>Not all users are the same, broke each one down by goals, tools, and where they got stuck</li>
+        </ul>
+        <div class="step-visual">
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-04-5010d89ffa.png" alt="Spreadsheet of role archetypes"></div></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="rail"><div class="dot">4</div><div class="line"></div></div>
+      <div class="step-body">
+        <h3>Jobs to be done</h3>
+        <ul>
+          <li>Identified the jobs, then grouped and categorised them</li>
+          <li>Started in a spreadsheet on purpose, no new tool needed to begin</li>
+        </ul>
+        <div class="step-visual">
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-05-cc5c0c5354.png" alt="Jobs to be done spreadsheet"></div></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="rail"><div class="dot">5</div><div class="line"></div></div>
+      <div class="step-body">
+        <h3>UX architecture</h3>
+        <ul>
+          <li>Mapped every branch: sign-up through approval or rejection, web and mobile</li>
+        </ul>
+        <div class="step-visual">
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-06-f44c3a9ca6.png" alt="UX architecture flowchart"></div></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="rail"><div class="dot">6</div><div class="line"></div></div>
+      <div class="step-body">
+        <h3>Ideation: sketches, then wireframes</h3>
+        <ul>
+          <li>Paper first: fast, disposable, easy to argue with</li>
+          <li>Into low-fidelity wireframes once a screen was worth testing properly</li>
+        </ul>
+        <div class="step-visual grid-3">
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-07-fc588e0084.jpg" alt="Photographed paper sketches"></div></figure>
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-08-235ece6b5e.png" alt="Low-fidelity wireframe of Your Sites"></div></figure>
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-09-204a68cff3.png" alt="Low-fidelity wireframe of IAM Hub"></div></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="rail"><div class="dot">7</div><div class="line"></div></div>
+      <div class="step-body">
+        <h3>High-fidelity prototype</h3>
+        <ul>
+          <li>Full fidelity, desktop and mobile, on Weir's actual UI. This had to feel shipped, not conceptual</li>
+        </ul>
+        <div class="step-visual mobile-row">
+          <div class="mobile-frame"><img src="../images/work/proactive-journeys/proactive-journeys-10-cb4463f890.jpg" alt="Mobile sign-up screen"></div>
+          <div class="mobile-frame"><img src="../images/work/proactive-journeys/proactive-journeys-11-b44948809f.jpg" alt="Mobile request submitted screen"></div>
+          <div class="mobile-frame"><img src="../images/work/proactive-journeys/proactive-journeys-12-a473f51c9f.jpg" alt="Mobile screen showing the user is already signed up"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="rail"><div class="dot">8</div><div class="line"></div></div>
+      <div class="step-body">
+        <h3>Usability testing</h3>
+        <ul>
+          <li>Sessions of around 60 minutes, synthesised into a report stakeholders could actually read</li>
+        </ul>
+        <div class="step-visual" style="display:grid; gap:14px;">
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-13-e9e4756c43.png" alt="Usability test session on IAM Hub, with participants on camera"></div></figure>
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-14-b8066b4f80.png" alt="Usability test session on Access Requests, with participants on camera"></div></figure>
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-15-cd416dc4bb.png" alt="Usability test session on Recently Reviewed, with participants on camera"></div></figure>
+        </div>
+        <div class="callout">
+          <span class="tag">Real example</span>
+          <p>A senior stakeholder asked, quite firmly, for a button to be removed. In their view it was one less step, easier for the user, and easier to build. It was an opinion, not evidence. Testing showed the opposite: users wanted that extra validation, not less of it. I brought the sessions that proved it, and the stakeholder backed down. We kept the button.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="rail"><div class="dot">9</div><div class="line"></div></div>
+      <div class="step-body">
+        <h3>Backlog</h3>
+        <ul>
+          <li>Every story: description, user story, prototype link, screenshots per state, acceptance criteria</li>
+        </ul>
+        <div class="step-visual">
+          <figure><div class="cover"><div class="chrome"><i></i><i></i><i></i></div><img src="../images/work/proactive-journeys/proactive-journeys-16-41be3a08d8.png" alt="Kanban backlog board"></div></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="rail"><div class="dot">10</div></div>
+      <div class="step-body">
+        <h3>Feedback loop</h3>
+        <ul>
+          <li>Develop, test, validate. Next item off the backlog, repeat</li>
+          <li>Shipped in order: global App Manager + web, then email, then mobile, then standard App Manager</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="block" style="border-bottom:none;">
+  <div class="wrap">
+    <p class="eyebrow">Outcome</p>
+    <h2 class="section-title">We gained speed. But also clarity and visibility (which are as important)</h2>
+    <p class="section-desc">The overall process is faster and simpler. However, it's the clarity and the visibility that I consider valuable, or even more, than the speed. We now have a clear journey for the end-users, in a well-defined process for their organisation (Business Users, Application Teams, Sales Teams, Stakeholders).</p>
+    <p class="section-desc" style="margin-top:14px;">This means that everybody knows how it needs to be done, and if something happens, a problem is easy to resolve. Not getting in the way of users getting access to what they need, which ultimately is what we're striving towards.</p>
+  </div>
+</section>
+
+<footer class="pj-footer">
+  <div class="wrap foot-row">
+    <div>
+      <span class="nav-logo">Joseph Emmi</span>
+      <p>Product design, discovery, and delivery for Weir's Customer Portal. Scoped, tested, and shipped end to end.</p>
+    </div>
+    <a class="back-link" href="../work.html">← Work</a>
+  </div>
+</footer>
+
+</body>
+</html>

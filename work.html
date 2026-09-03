@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Work — Joseph Emmi</title>
+<meta name="description" content="Product, platform and founder work — case studies, public speaking, and a CV on request." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Joseph Emmi</a>
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="projects.html">Projects</a>
+      <a href="writing.html">Writing</a>
+      <a href="photography.html">Photography</a>
+      <a href="now.html">Now</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Toggle theme" onclick="document.documentElement.classList.toggle('dark')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="main-wide">
+
+  <!-- ============ SUMMARY ============ -->
+  <section class="page-head">
+    <p class="eyebrow">Work</p>
+    <h1 class="page-title">Product management, design, and the odd voice interface.</h1>
+    <p class="page-lede">I've spent my career at the intersection of product, design and research — mostly inside large organisations (Scottish Water, Weir Group), occasionally as a founder building something of my own. The thread running through all of it: understand the problem properly before you touch the solution.</p>
+  </section>
+
+  <!-- ============ CV REQUEST ============ -->
+  <section class="block">
+    <div class="cv-card">
+      <div class="cv-copy">
+        <h3>Want the full CV?</h3>
+        <p>Leave your email and I'll send it over directly.</p>
+      </div>
+      <form class="cv-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="you@email.com" required />
+        <input type="hidden" name="_replyto" value="hello@josephemmi.com" />
+        <button type="submit" class="btn btn-default">Request CV</button>
+        <span class="cv-note">Goes straight to hello@josephemmi.com — I'll reply by hand, usually within a day or two.</span>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ CASE STUDIES ============ -->
+  <section class="block">
+    <div class="section-head">
+      <h2 class="section-title">Professional case studies</h2>
+      <p class="section-desc">A closer look at how I've approached product — from platform work inside Scottish Water and Weir Group to founding and running Agatha end to end.</p>
+    </div>
+
+    <div class="cs-list">
+
+      <a class="cs-row" href="work/momentini.html">
+        <div class="cs-cover gradient-cover gradient-rose"></div>
+        <div class="cs-content">
+          <p class="cs-meta">Personal build · July 2026 – Present</p>
+          <h3 class="cs-title">Momentini</h3>
+          <p class="cs-desc">A baby tracker built with Claude Code, used daily. Responsive, multi-user, iPad-first — with a live Linear roadmap behind it.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Personal Build</span>
+            <span class="cs-tag">Claude Code</span>
+            <span class="cs-tag">Full-Stack</span>
+            <span class="cs-tag">Baby Tracker</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cs-row" href="work/proactive-journeys.html">
+        <div class="cs-cover">
+          <img src="images/work/work-01-4f2dd28511.jpg" alt="Proactive Journeys — Weir Customer Portal" loading="lazy" />
+        </div>
+        <div class="cs-content">
+          <p class="cs-meta">Weir Group · 2021 – 2022</p>
+          <h3 class="cs-title">Proactive Journeys</h3>
+          <p class="cs-desc">A feature that provides self-service sign-up and access requests for Weir's Customer Portal. I took it from discovery to a shipped, tested release.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Product Strategy</span>
+            <span class="cs-tag">Self-Service</span>
+            <span class="cs-tag">B2B</span>
+            <span class="cs-tag">Customer Portal</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cs-row" href="work/sw-one.html">
+        <div class="cs-cover">
+          <img src="images/work/sw-one/cover.jpg" alt="SW One — Scottish Water event management" loading="lazy" />
+        </div>
+        <div class="cs-content">
+          <p class="cs-meta">Scottish Water · 2018</p>
+          <h3 class="cs-title">SW One</h3>
+          <p class="cs-desc">A mobile and web solution for creating and managing events for Scottish Water's Executive and Senior Leaders — built on existing platforms rather than a new app, saving the business over £50K a year.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Mobile &amp; Web</span>
+            <span class="cs-tag">Event Management</span>
+            <span class="cs-tag">B2B</span>
+            <span class="cs-tag">Full-Stack</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cs-row" href="work/alexa-skill.html">
+        <div class="cs-cover">
+          <img src="images/work/alexa-skill/cover.png" alt="Alexa Skill — voice interface demo" loading="lazy" />
+        </div>
+        <div class="cs-content">
+          <p class="cs-meta">Scottish Water · 2018</p>
+          <h3 class="cs-title">Alexa Skill</h3>
+          <p class="cs-desc">A voice interface built to show senior leaders what conversational AI could do for customer service, before anyone had asked the question.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Voice UX</span>
+            <span class="cs-tag">Innovation</span>
+            <span class="cs-tag">Customer Service</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cs-row" href="work/agatha.html">
+        <div class="cs-cover">
+          <img src="images/work/agatha/flow-1.png" alt="Agatha — safety app for solo runners and cyclists" loading="lazy" />
+        </div>
+        <div class="cs-content">
+          <p class="cs-meta">Founder · 2015 – 2018</p>
+          <h3 class="cs-title">Agatha</h3>
+          <p class="cs-desc">A mobile app for solo runners and cyclists that could raise the alarm when they couldn't.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Founder</span>
+            <span class="cs-tag">iOS</span>
+            <span class="cs-tag">watchOS</span>
+            <span class="cs-tag">Safety</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ PUBLIC SPEAKING ============ -->
+  <section class="block" style="border-bottom: none;">
+    <div class="section-head">
+      <h2 class="section-title">Public speaking</h2>
+      <p class="section-desc">A talk on voice interfaces and what they meant for customer service at Scottish Water.</p>
+    </div>
+    <a class="video-wrap" href="https://www.youtube.com/watch?v=zPku4al4P7Y" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.youtube.com/vi/zPku4al4P7Y/maxresdefault.jpg" alt="Public speaking — Joseph Emmi" loading="lazy" />
+      <div class="video-play">
+        <div class="video-play-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+    </a>
+    <p class="speaking-caption">Title, event and date to be confirmed — placeholder caption for now. Opens on YouTube.</p>
+
+    <div class="speaking-list">
+      <p class="speaking-list-label">Also spoken at</p>
+      <div class="speaking-row">
+        <span class="speaking-event">Enterprise Mobility Exchange — Berlin</span>
+        <span class="speaking-tbd">Date TBC</span>
+      </div>
+      <div class="speaking-row">
+        <span class="speaking-event">UX Scotland — Edinburgh</span>
+        <span class="speaking-tbd">Date TBC</span>
+      </div>
+      <div class="speaking-row">
+        <span class="speaking-event">Edinburgh Napier University — Guest lecturer</span>
+        <span class="speaking-tbd">Date TBC</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner footer-rich">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="name">Joseph Emmi</p>
+        <p class="tag">I build products, explore ideas and document the things I find interesting.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <span class="label">Site</span>
+          <a href="about.html">About</a>
+          <a href="work.html">Work</a>
+          <a href="writing.html">Writing</a>
+          <a href="photography.html">Photography</a>
+          <a href="now.html">Now</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <span class="label">Elsewhere</span>
+          <a href="https://www.linkedin.com/in/josephemmi" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/josephemmi" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://medium.com/@josephemmi" target="_blank" rel="noopener noreferrer">Medium</a>
+          <a href="https://github.com/josephemmi" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Joseph Emmi. All rights reserved.</p>
+      <p class="mono">Built in Glasgow.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
