@@ -7,277 +7,35 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-  /* ============================================================
-     DESIGN TOKENS — copied verbatim from josephemmi.com style guide
-     ============================================================ */
-  :root {
-    --background: oklch(0.985 0.004 90);
-    --foreground: oklch(0.19 0.01 90);
-    --muted: oklch(0.95 0.006 90);
-    --muted-foreground: oklch(0.46 0.012 90);
-    --border: oklch(0.89 0.008 90);
-    --card: oklch(0.995 0.003 90);
-    --accent: #D62A1B;
-    --accent-foreground: oklch(0.99 0.01 90);
-    --ring: #D62A1B;
-    --radius: 0.625rem;
-
-    --font-sans: "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
-    --font-serif: "Newsreader", ui-serif, Georgia, serif;
-    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
-  }
-
-  .dark {
-    --background: oklch(0.16 0.006 90);
-    --foreground: oklch(0.93 0.006 90);
-    --muted: oklch(0.22 0.008 90);
-    --muted-foreground: oklch(0.65 0.012 90);
-    --border: oklch(0.29 0.01 90);
-    --card: oklch(0.19 0.007 90);
-    --accent: #FF515D;
-    --accent-foreground: oklch(0.16 0.01 90);
-    --ring: #FF515D;
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-  }
-  ::selection { background: var(--accent); color: var(--accent-foreground); }
-  a { color: inherit; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
-
-  /* ---------- header / nav ---------- */
-  .site-header {
-    position: sticky; top: 0; z-index: 50;
-    background: color-mix(in srgb, var(--background) 80%, transparent);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-  }
-  .site-header-inner {
-    max-width: 48rem; margin: 0 auto; padding: 14px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .logo { font-family: var(--font-serif); font-size: 16px; font-weight: 500; text-decoration: none; }
-  .nav-links { display: flex; align-items: center; gap: 4px; }
-  .nav-links a {
-    font-size: 13px; text-decoration: none; color: var(--muted-foreground);
-    padding: 6px 12px; border-radius: 999px; transition: color 0.15s;
-  }
-  .nav-links a.active, .nav-links a:hover { color: var(--foreground); }
-  .theme-toggle {
-    font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
-    border: 1px solid var(--border); background: transparent; color: var(--muted-foreground);
-    padding: 6px 12px; border-radius: 999px; cursor: pointer; margin-left: 8px;
-  }
-  .theme-toggle:hover { background: var(--muted); color: var(--foreground); }
-
-  /* ---------- layout ---------- */
-  main { max-width: 48rem; margin: 0 auto; padding: 0 24px; }
-  section.block { padding: 56px 0; border-bottom: 1px solid var(--border); }
-  section.block:last-of-type { border-bottom: none; }
-
-  .eyebrow {
-    font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;
-    letter-spacing: 0.08em; color: var(--accent); margin: 0 0 14px;
-  }
-  h1.hero {
-    font-family: var(--font-serif); font-weight: 500; font-size: 44px; line-height: 1.1;
-    letter-spacing: -0.01em; margin: 0 0 16px;
-  }
-  .lede { font-size: 18px; line-height: 1.6; color: var(--muted-foreground); margin: 0 0 28px; max-width: 40rem; }
-
-  .meta-row { display: flex; flex-wrap: wrap; gap: 10px; }
-
-  h2.section-title {
-    font-family: var(--font-serif); font-weight: 500; font-size: 26px; margin: 0 0 20px; letter-spacing: -0.01em;
-  }
-  p.prose { font-size: 16px; line-height: 1.7; margin: 0 0 16px; color: var(--foreground); }
-  p.prose:last-child { margin-bottom: 0; }
-
-  ol.two-groups { margin: 0; padding-left: 22px; }
-  ol.two-groups li { font-size: 16px; line-height: 1.7; color: var(--foreground); margin-bottom: 6px; }
-  ol.two-groups li:last-child { margin-bottom: 0; }
-
-  /* ---------- badges ---------- */
-  .badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: var(--font-mono); font-size: 11px; letter-spacing: -0.01em;
-    border: 1px solid var(--border); background: var(--muted); color: var(--muted-foreground);
-    border-radius: 999px; padding: 4px 10px;
-  }
-  .badge-outline { background: transparent; }
-  .badge-accent { border-color: transparent; background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); }
-
-  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-
-  /* ---------- gallery groups (user flows / journey / sketch) ---------- */
-  .gallery-group + .gallery-group { margin-top: 44px; }
-  .gallery-group h3 {
-    font-family: var(--font-serif); font-weight: 500; font-size: 26px; margin: 0 0 20px; letter-spacing: -0.01em;
-  }
-
-  .shot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-  .shot {
-    aspect-ratio: 4 / 3; border-radius: var(--radius); border: 1px solid var(--border);
-    overflow: hidden; background: var(--muted); position: relative; display: block; width: 100%;
-  }
-  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
-  button.shot {
-    background: none; padding: 0; font: inherit; color: inherit; text-align: inherit; cursor: pointer;
-  }
-  button.shot::after {
-    content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background 0.2s;
-  }
-  button.shot:hover::after { background: rgba(0,0,0,0.1); }
-  button.shot:hover img { transform: scale(1.04); }
-  .shot-caption {
-    font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em;
-    color: var(--muted-foreground); margin: 8px 0 0;
-  }
-  .editorial-photo {
-    width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center top;
-    border-radius: var(--radius); border: 1px solid var(--border);
-    margin-top: 24px; display: block;
-  }
-
-  /* ---------- lightbox ---------- */
-  .lightbox {
-    position: fixed; inset: 0; z-index: 1000; background: rgba(10, 9, 7, 0.94);
-    display: none; align-items: center; justify-content: center; flex-direction: column;
-    padding: 24px;
-  }
-  .lightbox.open { display: flex; }
-  .lightbox-content { display: flex; flex-direction: column; align-items: center; max-width: 90vw; }
-  .lightbox-content img {
-    max-width: 90vw; max-height: 78vh; object-fit: contain; border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  }
-  .lightbox-caption {
-    font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;
-    color: rgba(255,255,255,0.7); margin: 16px 0 0;
-  }
-  .lightbox-close, .lightbox-prev, .lightbox-next {
-    position: fixed; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
-    color: #fff; border-radius: 999px; cursor: pointer; display: flex; align-items: center; justify-content: center;
-    transition: background 0.15s;
-  }
-  .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.18); }
-  .lightbox-close { top: 20px; right: 20px; width: 40px; height: 40px; font-size: 20px; line-height: 1; }
-  .lightbox-prev, .lightbox-next { top: 50%; transform: translateY(-50%); width: 48px; height: 48px; font-size: 22px; }
-  .lightbox-prev { left: 20px; }
-  .lightbox-next { right: 20px; }
-  .lightbox-prev[data-hidden="true"], .lightbox-next[data-hidden="true"] { visibility: hidden; }
-
-  /* ---------- stat cards ---------- */
-  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 24px; }
-  .stat-card {
-    border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: calc(var(--radius) + 4px);
-    background: var(--card); padding: 18px 20px;
-  }
-  .stat-num { font-family: var(--font-serif); font-size: 34px; font-weight: 500; letter-spacing: -0.01em; margin: 0; color: var(--accent); }
-  .stat-label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted-foreground); margin: 6px 0 0; }
-
-  /* ---------- quote cards ---------- */
-  .quote-lead {
-    border: 1px solid var(--border); border-radius: calc(var(--radius) + 4px);
-    background: var(--card); padding: 24px; margin-top: 24px;
-  }
-  .quote-lead p.quote { font-family: var(--font-serif); font-style: italic; font-size: 19px; line-height: 1.55; margin: 0 0 12px; }
-  .quote-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
-  .quote-card {
-    border: 1px solid var(--border); border-radius: calc(var(--radius) + 4px);
-    background: var(--card); padding: 20px;
-  }
-  .quote-card p.quote { font-family: var(--font-serif); font-style: italic; font-size: 16px; line-height: 1.55; margin: 0 0 12px; }
-
-  /* ---------- lessons list ---------- */
-  .lessons-list { margin-top: 20px; display: flex; flex-direction: column; gap: 20px; }
-  .lesson-item { display: flex; gap: 14px; }
-  .lesson-item .n { font-family: var(--font-mono); font-size: 13px; color: var(--accent); flex-shrink: 0; padding-top: 2px; }
-  .lesson-item .lesson-body p { margin: 0 0 12px; font-size: 15px; line-height: 1.65; color: var(--foreground); }
-  .lesson-item .lesson-body p:last-child { margin-bottom: 0; }
-
-  /* ---------- link card ---------- */
-  .link-card {
-    display: block; text-decoration: none; margin-top: 20px;
-    border: 1px solid var(--border); border-radius: calc(var(--radius) + 4px);
-    background: var(--card); overflow: hidden; transition: border-color 0.15s;
-  }
-  .link-card:hover { border-color: var(--muted-foreground); }
-  .link-card .shot { aspect-ratio: 2864 / 1398; border-radius: 0; border: none; border-bottom: 1px solid var(--border); }
-  .link-card .link-card-body { padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
-  .link-card .link-card-body h4 { font-family: var(--font-serif); font-size: 16px; font-weight: 500; margin: 0; color: var(--foreground); }
-  .link-card .link-card-body span { font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground); }
-
-  /* ---------- CTA ---------- */
-  .cta-block { text-align: left; }
-  .cta-block h2 { font-family: var(--font-serif); font-size: 30px; font-weight: 500; margin: 0 0 8px; letter-spacing: -0.01em; }
-  .cta-block p { color: var(--muted-foreground); font-size: 16px; margin: 0 0 24px; }
-  .btn {
-    font-family: var(--font-sans); font-size: 14px; font-weight: 500;
-    display: inline-flex; align-items: center; gap: 8px;
-    border-radius: 999px; padding: 10px 20px; border: 1px solid transparent;
-    cursor: pointer; text-decoration: none; transition: opacity 0.2s, background-color 0.2s;
-  }
-  .btn-default { background: var(--foreground); color: var(--background); }
-  .btn-default:hover { opacity: 0.9; }
-
-  /* ---------- footer ---------- */
-  footer { max-width: 48rem; margin: 0 auto; padding: 32px 24px 64px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-  .social-row { display: flex; gap: 14px; }
-  .social-row a { color: var(--muted-foreground); display: flex; }
-  .social-row a:hover { color: var(--foreground); }
-  .copyright { font-family: var(--font-mono); font-size: 11px; color: var(--muted-foreground); }
-
-  /* ---------- motion: one orchestrated entrance ---------- */
-  @keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-block .eyebrow { animation: fade-up 0.5s ease-out both; }
-  .hero-block h1 { animation: fade-up 0.5s ease-out 0.06s both; }
-  .hero-block .lede { animation: fade-up 0.5s ease-out 0.12s both; }
-  .hero-block .meta-row { animation: fade-up 0.5s ease-out 0.18s both; }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-block .eyebrow, .hero-block h1, .hero-block .lede, .hero-block .meta-row { animation: none; }
-    button.shot img { transition: none; }
-  }
-
-  @media (max-width: 640px) {
-    h1.hero { font-size: 32px; }
-    .quote-row { grid-template-columns: 1fr; }
-    .stat-grid { grid-template-columns: 1fr 1fr; }
-    .nav-links a:not(.active) { display: none; }
-    .lightbox-prev, .lightbox-next { width: 40px; height: 40px; font-size: 18px; }
-    .lightbox-prev { left: 8px; }
-    .lightbox-next { right: 8px; }
-    .lightbox-close { top: 12px; right: 12px; }
-  }
-</style>
+<link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
 
-<header class="site-header">
-  <div class="site-header-inner">
-    <a class="logo" href="../index.html">Joseph Emmi</a>
-    <div class="nav-links">
-      <a class="active" href="../work.html">← Work</a>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Joseph Emmi</a>
+    <nav class="nav-links">
+      <a href="../about.html">About</a>
+      <a href="../work.html" class="active">Work</a>
+      <a href="../projects.html">Projects</a>
       <a href="../writing.html">Writing</a>
+      <a href="../photography.html">Photography</a>
+      <a href="../now.html">Now</a>
       <a href="../contact.html">Contact</a>
-      <button class="theme-toggle" onclick="document.documentElement.classList.toggle('dark')">Dark mode</button>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Toggle theme" onclick="document.documentElement.classList.toggle('dark')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<main>
+<main class="main-flush">
 
   <section class="block hero-block" style="padding-top: 56px;">
     <p class="eyebrow">Founder-led product · 2015–2018</p>
-    <h1 class="hero">Agatha</h1>
+    <h1 class="hero case-hero">Agatha</h1>
     <p class="lede">
       A mobile app for solo runners and cyclists that could raise the alarm when they couldn't.
       Built for Apple Watch and iPhone, using built-in sensors to read movement, acceleration and
@@ -294,23 +52,23 @@
 
   <section class="block">
     <h2 class="section-title">The problem</h2>
-    <p class="prose">
+    <p class="prose-p">
       Emergencies are not planned, phone calls and panic buttons are the usual solutions in these
       circumstances. Despite their change and evolution to more modern versions, their principles
       for action have fundamentally remained the same, relying on the user for them to work.
     </p>
-    <p class="prose">What if the user is unable to press the button or make the phone call?</p>
-    <p class="prose">
+    <p class="prose-p">What if the user is unable to press the button or make the phone call?</p>
+    <p class="prose-p">
       Agatha (previously Salus) is a mobile application for Apple Watch and iPhone, able to send an
       alert message with geo-location to emergency services and next of kin, without the need of
       human interaction.
     </p>
-    <p class="prose">
+    <p class="prose-p">
       The app takes advantage of the built-in sensors on these devices, to measure movement,
       acceleration and heart-rate, and build patterns that allow it to understand when the user can
       be at risk, automatically triggering the alert in case they are unable to.
     </p>
-    <p class="prose">
+    <p class="prose-p">
       It aims to improve safety for runners, cyclists and active lifestyle individuals while
       offering peace of mind for them and their families, by speeding up response times, and in
       case of life-threatening scenarios, improve chances of survival.
@@ -319,7 +77,7 @@
 
   <section class="block">
     <h2 class="section-title">My role</h2>
-    <p class="prose">
+    <p class="prose-p">
       Founder and sole team member for just over three years, working across every side of the
       business: product, operations, and customers.
     </p>
@@ -347,15 +105,15 @@
       <h3>User flows</h3>
       <div class="shot-grid">
         <figure>
-          <button type="button" class="shot" data-caption="Flow — part 1"><img src="https://static.wixstatic.com/media/a1f149_7052b1cf304545fa92ae353e5b6ea780~mv2_d_2928_2071_s_2.png/v1/fill/w_980,h_693,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_7052b1cf304545fa92ae353e5b6ea780~mv2_d_2928_2071_s_2.png" alt="Agatha user flow diagram, part 1" loading="lazy" /></button>
+          <button type="button" class="shot" data-gallery="flows" data-caption="Flow — part 1"><img src="https://static.wixstatic.com/media/a1f149_7052b1cf304545fa92ae353e5b6ea780~mv2_d_2928_2071_s_2.png/v1/fill/w_980,h_693,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_7052b1cf304545fa92ae353e5b6ea780~mv2_d_2928_2071_s_2.png" alt="Agatha user flow diagram, part 1" loading="lazy" /></button>
           <figcaption class="shot-caption">Flow — part 1</figcaption>
         </figure>
         <figure>
-          <button type="button" class="shot" data-caption="Flow — part 2"><img src="https://static.wixstatic.com/media/a1f149_9c36f80100714fdf9e768e4d66d12c74~mv2_d_3028_2142_s_2.png/v1/fill/w_980,h_693,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_9c36f80100714fdf9e768e4d66d12c74~mv2_d_3028_2142_s_2.png" alt="Agatha user flow diagram, part 2" loading="lazy" /></button>
+          <button type="button" class="shot" data-gallery="flows" data-caption="Flow — part 2"><img src="https://static.wixstatic.com/media/a1f149_9c36f80100714fdf9e768e4d66d12c74~mv2_d_3028_2142_s_2.png/v1/fill/w_980,h_693,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_9c36f80100714fdf9e768e4d66d12c74~mv2_d_3028_2142_s_2.png" alt="Agatha user flow diagram, part 2" loading="lazy" /></button>
           <figcaption class="shot-caption">Flow — part 2</figcaption>
         </figure>
         <figure>
-          <button type="button" class="shot" data-caption="Flow — part 3"><img src="https://static.wixstatic.com/media/a1f149_5092061fddd1417898c7c8dbc147e933~mv2_d_3049_2156_s_2.png/v1/fill/w_980,h_693,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_5092061fddd1417898c7c8dbc147e933~mv2_d_3049_2156_s_2.png" alt="Agatha user flow diagram, part 3" loading="lazy" /></button>
+          <button type="button" class="shot" data-gallery="flows" data-caption="Flow — part 3"><img src="https://static.wixstatic.com/media/a1f149_5092061fddd1417898c7c8dbc147e933~mv2_d_3049_2156_s_2.png/v1/fill/w_980,h_693,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_5092061fddd1417898c7c8dbc147e933~mv2_d_3049_2156_s_2.png" alt="Agatha user flow diagram, part 3" loading="lazy" /></button>
           <figcaption class="shot-caption">Flow — part 3</figcaption>
         </figure>
       </div>
@@ -365,11 +123,11 @@
       <h3>User journey</h3>
       <div class="shot-grid">
         <figure>
-          <button type="button" class="shot" data-caption="Storyboard — panel 1"><img src="https://static.wixstatic.com/media/a1f149_09781eef52754450b181cb8079a409cf~mv2_d_1754_1239_s_2.jpg/v1/fill/w_980,h_692,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_09781eef52754450b181cb8079a409cf~mv2_d_1754_1239_s_2.jpg" alt="Agatha storyboard, panel 1" loading="lazy" /></button>
+          <button type="button" class="shot" data-gallery="journey" data-caption="Storyboard — panel 1"><img src="https://static.wixstatic.com/media/a1f149_09781eef52754450b181cb8079a409cf~mv2_d_1754_1239_s_2.jpg/v1/fill/w_980,h_692,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_09781eef52754450b181cb8079a409cf~mv2_d_1754_1239_s_2.jpg" alt="Agatha storyboard, panel 1" loading="lazy" /></button>
           <figcaption class="shot-caption">Storyboard — panel 1</figcaption>
         </figure>
         <figure>
-          <button type="button" class="shot" data-caption="Storyboard — panel 2"><img src="https://static.wixstatic.com/media/a1f149_d6aa655f0a4146f1bc7f9dc5955c33cc~mv2_d_1754_1239_s_2.jpg/v1/fill/w_980,h_692,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_d6aa655f0a4146f1bc7f9dc5955c33cc~mv2_d_1754_1239_s_2.jpg" alt="Agatha storyboard, panel 2" loading="lazy" /></button>
+          <button type="button" class="shot" data-gallery="journey" data-caption="Storyboard — panel 2"><img src="https://static.wixstatic.com/media/a1f149_d6aa655f0a4146f1bc7f9dc5955c33cc~mv2_d_1754_1239_s_2.jpg/v1/fill/w_980,h_692,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_d6aa655f0a4146f1bc7f9dc5955c33cc~mv2_d_1754_1239_s_2.jpg" alt="Agatha storyboard, panel 2" loading="lazy" /></button>
           <figcaption class="shot-caption">Storyboard — panel 2</figcaption>
         </figure>
       </div>
@@ -379,15 +137,15 @@
       <h3>App sketch</h3>
       <div class="shot-grid">
         <figure>
-          <button type="button" class="shot" data-caption="First-time user — 1"><img src="https://static.wixstatic.com/media/a1f149_425b597af2494da1bb00aa5d3577ddf8~mv2_d_1754_1217_s_2.jpg/v1/fill/w_980,h_680,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_425b597af2494da1bb00aa5d3577ddf8~mv2_d_1754_1217_s_2.jpg" alt="Agatha first-time user journey sketch, part 1" loading="lazy" /></button>
+          <button type="button" class="shot" data-gallery="sketch" data-caption="First-time user — 1"><img src="https://static.wixstatic.com/media/a1f149_425b597af2494da1bb00aa5d3577ddf8~mv2_d_1754_1217_s_2.jpg/v1/fill/w_980,h_680,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_425b597af2494da1bb00aa5d3577ddf8~mv2_d_1754_1217_s_2.jpg" alt="Agatha first-time user journey sketch, part 1" loading="lazy" /></button>
           <figcaption class="shot-caption">First-time user — 1</figcaption>
         </figure>
         <figure>
-          <button type="button" class="shot" data-caption="First-time user — 2"><img src="https://static.wixstatic.com/media/a1f149_99e7f10e68e04bc69bf885fe7b5121d4~mv2_d_1752_1239_s_2.jpg/v1/fill/w_980,h_693,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_99e7f10e68e04bc69bf885fe7b5121d4~mv2_d_1752_1239_s_2.jpg" alt="Agatha first-time user journey sketch, part 2" loading="lazy" /></button>
+          <button type="button" class="shot" data-gallery="sketch" data-caption="First-time user — 2"><img src="https://static.wixstatic.com/media/a1f149_99e7f10e68e04bc69bf885fe7b5121d4~mv2_d_1752_1239_s_2.jpg/v1/fill/w_980,h_693,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_99e7f10e68e04bc69bf885fe7b5121d4~mv2_d_1752_1239_s_2.jpg" alt="Agatha first-time user journey sketch, part 2" loading="lazy" /></button>
           <figcaption class="shot-caption">First-time user — 2</figcaption>
         </figure>
         <figure>
-          <button type="button" class="shot" data-caption="First-time user — 3"><img src="https://static.wixstatic.com/media/a1f149_719e2743d398430a96da78e21f7c996e~mv2_d_1754_1239_s_2.jpg/v1/fill/w_980,h_692,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_719e2743d398430a96da78e21f7c996e~mv2_d_1754_1239_s_2.jpg" alt="Agatha first-time user journey sketch, part 3" loading="lazy" /></button>
+          <button type="button" class="shot" data-gallery="sketch" data-caption="First-time user — 3"><img src="https://static.wixstatic.com/media/a1f149_719e2743d398430a96da78e21f7c996e~mv2_d_1754_1239_s_2.jpg/v1/fill/w_980,h_692,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_719e2743d398430a96da78e21f7c996e~mv2_d_1754_1239_s_2.jpg" alt="Agatha first-time user journey sketch, part 3" loading="lazy" /></button>
           <figcaption class="shot-caption">First-time user — 3</figcaption>
         </figure>
       </div>
@@ -396,37 +154,37 @@
 
   <section class="block">
     <h2 class="section-title">Understanding the users</h2>
-    <p class="prose">
+    <p class="prose-p">
       At the beginning of the project, there were several possible use-cases, and user groups.
       Proto-personas were created from first-hand data collected through personal experiences as
       runner, observation, and numerous interactions in the form of conversations, informal
       interviews and stories shared with me.
     </p>
-    <p class="prose">
+    <p class="prose-p">
       As a startup looking for market fit, the process has always been very interactive,
       exploratory and dynamic; with a great amount of input from potential users, constantly
       looking to validate assumptions and gather data that could support or deny the rationale
       behind the product.
     </p>
-    <p class="prose">
+    <p class="prose-p">
       One of the key learnings from the carried research was, gaining a clear understanding of the
       way people think about and approach emergencies or situations that, in theory, could
       represent a serious risk.
     </p>
-    <p class="prose">
+    <p class="prose-p">
       Overall, people don't tend to think they can be in a compromised position and, if given the
       case, they also believe they would be able to handle it by themselves.
     </p>
-    <p class="prose">
+    <p class="prose-p">
       This represented a serious challenge for the product, as it defeated its ethos. At this
       point, Agatha was a solution to a problem people didn't consider as such.
     </p>
-    <p class="prose">
+    <p class="prose-p">
       However, additional and more specific research allowed to narrow the scope and identify two
       groups that seemed compelled and suggested solutions to their problem that positively
       validated Agatha's value proposition.
     </p>
-    <p class="prose">The two groups were:</p>
+    <p class="prose-p">The two groups were:</p>
     <ol class="two-groups">
       <li>Female Runners</li>
       <li>Runners affected directly or indirectly by an assault episode</li>
@@ -457,22 +215,22 @@
 
   <section class="block">
     <h2 class="section-title">Breaking down the process</h2>
-    <p class="prose">
+    <p class="prose-p">
       The research and development of the project comprised different stages over a period of more
       than 2.5 years.
     </p>
-    <p class="prose">
+    <p class="prose-p">
       From an academic research to interviews, prototyping and testing, and numerous engagements
       with a varied demographic that was narrowed down along the way; this discovery process was
       carried in parallel and in informed other activities on the business and operations side of
       the project.
     </p>
-    <p class="prose">
+    <p class="prose-p">
       Additionally to this, harnessing the power of social media was key during the latest stages of
       the research (interviews &amp; surveys), helping to reach a diverse and significant number of
       participants in a fast and direct fashion.
     </p>
-    <p class="prose">
+    <p class="prose-p">
       From running crews all over the world (Turkey, United States, Italy, Scotland and England),
       Olympic athletes, bloggers and even world-class brands like Adidas, insightful information was
       gathered that helped to refine the product, and shape its value proposition to better server
@@ -501,7 +259,7 @@
 
   <section class="block">
     <h2 class="section-title">Lessons learned</h2>
-    <p class="prose">
+    <p class="prose-p">
       Overall, the majority of people tend to think they will be able to handle any problems in
       case of an emergency, no matter the circumstances. Almost no one thinks something could
       happen to them.
@@ -555,98 +313,24 @@
 
 </main>
 
-<footer>
-  <span class="copyright">© 2018–2026 Joseph Emmi</span>
-  <div class="social-row">
-    <a href="https://www.linkedin.com/in/josephemmi/" aria-label="LinkedIn" target="_blank" rel="noopener">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg>
-    </a>
-    <a href="https://twitter.com/josephemmi" aria-label="X / Twitter" target="_blank" rel="noopener">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"/></svg>
-    </a>
-    <a href="https://www.instagram.com/josephemmi/" aria-label="Instagram" target="_blank" rel="noopener">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
-    </a>
-    <a href="https://www.youtube.com/watch?v=zPku4al4P7Y" aria-label="YouTube" target="_blank" rel="noopener">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
-    </a>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>© 2018–2026 Joseph Emmi</p>
+    <p class="mono">Built in Glasgow.</p>
   </div>
 </footer>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
-  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
-  <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+<div class="lightbox-overlay" id="lightbox-overlay">
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+  <button type="button" class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">‹</button>
   <div class="lightbox-content">
-    <img id="lightboxImg" src="" alt="" />
-    <p class="lightbox-caption" id="lightboxCaption"></p>
+    <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+    <p class="lightbox-caption" id="lightbox-caption"></p>
   </div>
-  <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+  <button type="button" class="lightbox-next" id="lightbox-next" aria-label="Next image">›</button>
 </div>
 
-<script>
-(function () {
-  var lightbox = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightboxImg');
-  var lbCaption = document.getElementById('lightboxCaption');
-  var prevBtn = document.getElementById('lightboxPrev');
-  var nextBtn = document.getElementById('lightboxNext');
-  var closeBtn = document.getElementById('lightboxClose');
-
-  var currentGroup = [];
-  var currentIndex = 0;
-
-  function render() {
-    var img = currentGroup[currentIndex];
-    lbImg.src = img.getAttribute('src');
-    lbImg.alt = img.getAttribute('alt') || '';
-    lbCaption.textContent = img.closest('.shot').getAttribute('data-caption') || lbImg.alt;
-    prevBtn.setAttribute('data-hidden', currentIndex === 0 ? 'true' : 'false');
-    nextBtn.setAttribute('data-hidden', currentIndex === currentGroup.length - 1 ? 'true' : 'false');
-  }
-
-  function openLightbox(groupImgs, index) {
-    currentGroup = groupImgs;
-    currentIndex = index;
-    render();
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    closeBtn.focus();
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  document.querySelectorAll('.gallery-group').forEach(function (group) {
-    var imgs = Array.prototype.slice.call(group.querySelectorAll('.shot img'));
-    imgs.forEach(function (img, i) {
-      img.closest('.shot').addEventListener('click', function () {
-        openLightbox(imgs, i);
-      });
-    });
-  });
-
-  prevBtn.addEventListener('click', function () {
-    if (currentIndex > 0) { currentIndex--; render(); }
-  });
-  nextBtn.addEventListener('click', function () {
-    if (currentIndex < currentGroup.length - 1) { currentIndex++; render(); }
-  });
-  closeBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', function (e) {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') nextBtn.click();
-    if (e.key === 'ArrowLeft') prevBtn.click();
-  });
-})();
-</script>
+<script src="../assets/js/lightbox.js"></script>
 
 </body>
 </html>

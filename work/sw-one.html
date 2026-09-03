@@ -7,243 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<style>
-  /* ============================================================
-     DESIGN TOKENS — copied verbatim from josephemmistyleguide.html
-     ============================================================ */
-  :root {
-    --background: oklch(0.985 0.004 90);
-    --foreground: oklch(0.19 0.01 90);
-    --muted: oklch(0.95 0.006 90);
-    --muted-foreground: oklch(0.46 0.012 90);
-    --border: oklch(0.89 0.008 90);
-    --card: oklch(0.995 0.003 90);
-    --accent: #D62A1B;
-    --accent-foreground: oklch(0.99 0.01 90);
-    --ring: #D62A1B;
-    --radius: 0.625rem;
-
-    --font-sans: "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
-    --font-serif: "Newsreader", ui-serif, Georgia, serif;
-    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
-  }
-
-  .dark {
-    --background: oklch(0.16 0.006 90);
-    --foreground: oklch(0.93 0.006 90);
-    --muted: oklch(0.22 0.008 90);
-    --muted-foreground: oklch(0.65 0.012 90);
-    --border: oklch(0.29 0.01 90);
-    --card: oklch(0.19 0.007 90);
-    --accent: #FF515D;
-    --accent-foreground: oklch(0.16 0.01 90);
-    --ring: #FF515D;
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-  }
-  ::selection { background: var(--accent); color: var(--accent-foreground); }
-  a { color: inherit; }
-  img { max-width: 100%; display: block; }
-
-  h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; margin: 0; }
-  p { line-height: 1.65; margin: 0; }
-
-  /* nav */
-  header.site-nav {
-    position: sticky; top: 0; z-index: 50;
-    background: color-mix(in srgb, var(--background) 80%, transparent);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner {
-    max-width: 64rem; margin: 0 auto; padding: 14px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo { font-family: var(--font-serif); font-size: 16px; font-weight: 500; text-decoration: none; }
-  .nav-links { display: flex; gap: 4px; }
-  .nav-links a {
-    font-size: 13px; color: var(--muted-foreground); padding: 6px 12px; border-radius: 999px;
-    text-decoration: none;
-  }
-  .nav-links a.active { color: var(--foreground); }
-  .nav-links a:hover { background: var(--muted); }
-
-  main { max-width: 48rem; margin: 0 auto; padding: 0 24px 96px; }
-
-  section.block { padding: 56px 0; border-bottom: 1px solid var(--border); }
-  section.block:last-of-type { border-bottom: none; }
-
-  .eyebrow {
-    font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;
-    letter-spacing: 0.08em; color: var(--accent); margin: 0 0 12px;
-  }
-  h1.hero { font-size: 44px; line-height: 1.1; max-width: 720px; margin: 0 0 16px; }
-  .lede { font-size: 18px; line-height: 1.6; color: var(--muted-foreground); max-width: 620px; margin: 0; }
-
-  h2.section-title { font-size: 24px; margin: 0 0 16px; }
-  h3.subhead { font-size: 19px; margin: 32px 0 12px; }
-  .body-text { font-size: 16px; color: var(--foreground); }
-  .body-text + .body-text { margin-top: 14px; }
-
-  /* meta row — replaces the old DATE/STATUS labels */
-  .meta-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0 0; }
-  .badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: var(--font-mono); font-size: 11px; letter-spacing: -0.01em;
-    border: 1px solid var(--border); background: var(--muted); color: var(--muted-foreground);
-    border-radius: 999px; padding: 4px 10px;
-  }
-  .badge-accent { border-color: transparent; background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); }
-
-  /* hero cover image */
-  .hero-cover {
-    border: 1px solid var(--border); border-radius: calc(var(--radius) + 4px);
-    overflow: hidden; margin-top: 32px;
-  }
-  .hero-cover img { width: 100%; }
-
-  /* image gallery cards */
-  .gallery {
-    display: grid; gap: 20px; margin-top: 24px;
-  }
-  .gallery.cols-2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
-  .gallery.cols-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-  .gallery figure {
-    margin: 0; border: 1px solid var(--border); border-radius: var(--radius);
-    overflow: hidden; background: var(--card);
-  }
-  .gallery figure img {
-    width: 100%; display: block; cursor: zoom-in;
-    transition: transform 0.3s ease;
-  }
-  .gallery figure:hover img { transform: scale(1.02); }
-  .gallery figure img:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
-  .gallery figcaption {
-    font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em;
-    color: var(--muted-foreground); padding: 10px 12px; border-top: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .gallery figcaption .zoom-hint { color: var(--accent); font-size: 10px; }
-
-  /* hero cover also opens the lightbox */
-  .hero-cover img { cursor: zoom-in; transition: transform 0.3s ease; }
-  .hero-cover:hover img { transform: scale(1.01); }
-  .hero-cover img:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
-
-  /* ============================================================
-     LIGHTBOX
-     ============================================================ */
-  .lightbox-overlay {
-    position: fixed; inset: 0; z-index: 200;
-    background: rgba(10, 9, 7, 0.94);
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; visibility: hidden;
-    transition: opacity 0.25s ease;
-    padding: 24px;
-  }
-  .lightbox-overlay.open { opacity: 1; visibility: visible; }
-  .lightbox-image {
-    max-width: min(92vw, 1400px); max-height: 88vh;
-    width: auto; height: auto;
-    border-radius: calc(var(--radius) - 2px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    user-select: none;
-  }
-  .lightbox-close {
-    position: absolute; top: 20px; right: 24px;
-    width: 40px; height: 40px; border-radius: 999px;
-    background: transparent; border: 1px solid rgba(255,255,255,0.25);
-    color: #efeee9; font-size: 22px; line-height: 1;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: background-color 0.2s, border-color 0.2s;
-  }
-  .lightbox-close:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
-  .lightbox-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    width: 52px; height: 52px; border-radius: 999px;
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2);
-    color: #efeee9; font-size: 26px; font-family: var(--font-sans);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
-  }
-  .lightbox-arrow:hover { background: rgba(255,255,255,0.14); border-color: var(--accent); transform: translateY(-50%) scale(1.05); }
-  .lightbox-prev { left: 20px; }
-  .lightbox-next { right: 20px; }
-  .lightbox-counter {
-    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
-    color: rgba(255,255,255,0.65);
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
-    padding: 6px 14px; border-radius: 999px;
-  }
-  @media (max-width: 640px) {
-    .lightbox-arrow { width: 42px; height: 42px; font-size: 20px; }
-    .lightbox-prev { left: 8px; }
-    .lightbox-next { right: 8px; }
-    .lightbox-close { top: 12px; right: 12px; }
-  }
-
-  /* option cards for the "breaking down the process" section */
-  .option-card {
-    border: 1px solid var(--border); border-radius: calc(var(--radius) + 4px);
-    background: var(--card); padding: 24px; margin-top: 20px;
-  }
-  .option-card h4 {
-    font-family: var(--font-serif); font-size: 18px; font-weight: 500; margin: 0 0 4px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .option-tag {
-    font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em;
-    color: var(--accent);
-  }
-  .option-card ul { margin: 12px 0 0; padding-left: 20px; }
-  .option-card li { font-size: 14.5px; color: var(--muted-foreground); line-height: 1.6; margin-bottom: 8px; }
-  .option-card li:last-child { margin-bottom: 0; }
-  .option-card li a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-
-  /* lessons learned — pull quote style */
-  .pull-quote {
-    font-family: var(--font-serif); font-size: 28px; line-height: 1.3; font-weight: 500;
-    letter-spacing: -0.01em; max-width: 620px; margin: 0;
-  }
-
-  /* footer CTA */
-  .cta-block { text-align: left; padding-top: 56px; }
-  .cta-block h2 { font-size: 28px; margin-bottom: 8px; }
-  .cta-block p.lede { margin-bottom: 24px; }
-  .btn {
-    font-family: var(--font-sans); font-size: 14px; font-weight: 500;
-    display: inline-flex; align-items: center; gap: 8px;
-    border-radius: 999px; padding: 10px 20px; border: 1px solid transparent;
-    cursor: pointer; text-decoration: none; transition: opacity 0.2s, background-color 0.2s;
-  }
-  .btn-default { background: var(--foreground); color: var(--background); }
-  .btn-default:hover { opacity: 0.9; }
-
-  footer.site-footer {
-    border-top: 1px solid var(--border); padding: 32px 24px;
-  }
-  .footer-inner {
-    max-width: 64rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
-  }
-  .social-row { display: flex; gap: 16px; }
-  .social-row a { color: var(--muted-foreground); text-decoration: none; font-family: var(--font-mono); font-size: 12px; }
-  .social-row a:hover { color: var(--foreground); }
-  .copyright { font-family: var(--font-mono); font-size: 11px; color: var(--muted-foreground); }
-
-  @media (max-width: 640px) {
-    h1.hero { font-size: 32px; }
-    .pull-quote { font-size: 22px; }
-  }
-</style>
+<link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
 
@@ -251,18 +15,27 @@
   <div class="nav-inner">
     <a class="nav-logo" href="../index.html">Joseph Emmi</a>
     <nav class="nav-links">
-      <a href="../work.html" class="active">← Work</a>
+      <a href="../about.html">About</a>
+      <a href="../work.html" class="active">Work</a>
+      <a href="../projects.html">Projects</a>
       <a href="../writing.html">Writing</a>
+      <a href="../photography.html">Photography</a>
+      <a href="../now.html">Now</a>
       <a href="../contact.html">Contact</a>
     </nav>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Toggle theme" onclick="document.documentElement.classList.toggle('dark')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg>
+      </button>
+    </div>
   </div>
 </header>
 
-<main>
+<main class="main-flush">
 
   <section class="block" style="padding-top: 56px;">
     <p class="eyebrow">Case study</p>
-    <h1 class="hero">SW One</h1>
+    <h1 class="hero case-hero">SW One</h1>
     <p class="lede">
       A mobile and web solution for creating and managing events for Scottish Water's Executive and
       Senior Leaders — built on existing platforms rather than a new app, saving the business over
@@ -426,102 +199,22 @@
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="copyright">© 2018 – 2020 by Joseph Emmi.</span>
-    <div class="social-row">
-      <a href="https://www.linkedin.com/in/josephemmi/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://twitter.com/josephemmi" target="_blank" rel="noopener">Twitter</a>
-      <a href="https://www.youtube.com/watch?v=zPku4al4P7Y" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/josephemmi/" target="_blank" rel="noopener">Instagram</a>
-    </div>
+    <p>© 2018–2020 Joseph Emmi</p>
+    <p class="mono">Built in Glasgow.</p>
   </div>
 </footer>
 
-
-<div class="lightbox-overlay" id="lightbox-overlay" onclick="if(event.target===this) closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
-  <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" onclick="lightboxPrev()" aria-label="Previous image">&#8249;</button>
-  <img class="lightbox-image" id="lightbox-img" src="" alt="" />
-  <button class="lightbox-arrow lightbox-next" id="lightbox-next" onclick="lightboxNext()" aria-label="Next image">&#8250;</button>
-  <div class="lightbox-counter" id="lightbox-counter"></div>
+<div class="lightbox-overlay" id="lightbox-overlay">
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+  <button type="button" class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">‹</button>
+  <div class="lightbox-content">
+    <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+    <p class="lightbox-counter" id="lightbox-counter"></p>
+  </div>
+  <button type="button" class="lightbox-next" id="lightbox-next" aria-label="Next image">›</button>
 </div>
 
-<script>
-  (function () {
-    var galleries = {};
-    var currentGallery = null;
-    var currentIndex = 0;
-
-    function buildGalleries() {
-      var imgs = document.querySelectorAll('.lightbox-img');
-      imgs.forEach(function (img) {
-        var g = img.getAttribute('data-gallery');
-        var idx = parseInt(img.getAttribute('data-index'), 10);
-        if (!galleries[g]) galleries[g] = [];
-        galleries[g][idx] = { src: img.src, alt: img.alt };
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function () { openLightbox(g, idx); });
-        img.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(g, idx); }
-        });
-      });
-    }
-
-    window.openLightbox = function (gallery, index) {
-      currentGallery = gallery;
-      currentIndex = index;
-      updateLightboxImage();
-      var overlay = document.getElementById('lightbox-overlay');
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    };
-
-    window.closeLightbox = function () {
-      document.getElementById('lightbox-overlay').classList.remove('open');
-      document.body.style.overflow = '';
-    };
-
-    function updateLightboxImage() {
-      var set = galleries[currentGallery] || [];
-      if (!set.length) return;
-      var item = set[currentIndex];
-      var imgEl = document.getElementById('lightbox-img');
-      imgEl.src = item.src;
-      imgEl.alt = item.alt;
-      document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + set.length;
-      var showArrows = set.length > 1 ? 'flex' : 'none';
-      document.getElementById('lightbox-prev').style.display = showArrows;
-      document.getElementById('lightbox-next').style.display = showArrows;
-    }
-
-    window.lightboxNext = function () {
-      var set = galleries[currentGallery] || [];
-      if (!set.length) return;
-      currentIndex = (currentIndex + 1) % set.length;
-      updateLightboxImage();
-    };
-
-    window.lightboxPrev = function () {
-      var set = galleries[currentGallery] || [];
-      if (!set.length) return;
-      currentIndex = (currentIndex - 1 + set.length) % set.length;
-      updateLightboxImage();
-    };
-
-    document.addEventListener('keydown', function (e) {
-      var overlay = document.getElementById('lightbox-overlay');
-      if (!overlay.classList.contains('open')) return;
-      if (e.key === 'ArrowRight') lightboxNext();
-      if (e.key === 'ArrowLeft') lightboxPrev();
-      if (e.key === 'Escape') closeLightbox();
-    });
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', buildGalleries);
-    } else {
-      buildGalleries();
-    }
-  })();
-</script>
+<script src="../assets/js/lightbox.js"></script>
 
 </body>
 </html>
