@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Recipe app — Joseph Emmi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --background: oklch(0.985 0.004 90); --foreground: oklch(0.19 0.01 90);
+    --muted: oklch(0.95 0.006 90); --muted-foreground: oklch(0.46 0.012 90);
+    --border: oklch(0.89 0.008 90); --card: oklch(0.995 0.003 90);
+    --accent: #D62A1B; --accent-foreground: oklch(0.99 0.01 90); --ring: #D62A1B; --radius: 0.625rem;
+    --font-sans: "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
+    --font-serif: "Newsreader", ui-serif, Georgia, serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  }
+  .dark {
+    --background: oklch(0.16 0.006 90); --foreground: oklch(0.93 0.006 90);
+    --muted: oklch(0.22 0.008 90); --muted-foreground: oklch(0.65 0.012 90);
+    --border: oklch(0.29 0.01 90); --card: oklch(0.19 0.007 90);
+    --accent: #FF515D; --accent-foreground: oklch(0.16 0.01 90); --ring: #FF515D;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; transition: background-color .2s, color .2s; }
+  ::selection { background: var(--accent); color: var(--accent-foreground); }
+  a { color: inherit; text-decoration: none; }
+  p { line-height: 1.65; margin: 0; }
+
+  header.site-nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--background) 80%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1040px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-logo { font-family: var(--font-serif); font-size: 17px; font-weight: 500; }
+  .nav-links { display: flex; align-items: center; gap: 2px; }
+  .nav-links a { font-size: 14px; color: var(--muted-foreground); padding: 8px 14px; border-radius: 999px; transition: color .2s, background-color .2s; }
+  .nav-links a:hover { background: var(--muted); color: var(--foreground); }
+  .nav-links a.active { color: var(--foreground); background: var(--muted); }
+  .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 999px; border: none; background: transparent; color: var(--foreground); cursor: pointer; transition: background-color .2s; }
+  .icon-btn:hover { background: var(--muted); }
+  .icon-btn svg { width: 17px; height: 17px; }
+  @media (max-width: 780px) { .nav-links { display: none; } }
+
+  main { max-width: 700px; margin: 0 auto; padding: 64px 24px 100px; }
+  .eyebrow { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 0; }
+  h1.page-title { font-family: var(--font-serif); font-weight: 500; font-size: 38px; line-height: 1.15; letter-spacing: -.01em; margin: 14px 0 0; }
+  .page-lede { font-size: 17px; line-height: 1.6; color: var(--muted-foreground); margin: 16px 0 0; }
+  .built-with { font-size: 13px; color: var(--muted-foreground); font-style: italic; margin: 12px 0 0; }
+
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .02em; text-transform: uppercase; border: 1px solid var(--border); background: var(--muted); color: var(--muted-foreground); border-radius: 999px; padding: 4px 10px; }
+  .badge-outline { background: transparent; }
+  .badge-accent { border-color: transparent; background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); }
+
+  .cover { margin-top: 32px; aspect-ratio: 16/9; border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; }
+
+  .prose { margin-top: 36px; }
+  .prose h2 { font-family: var(--font-serif); font-weight: 500; font-size: 20px; margin: 32px 0 12px; }
+  .prose h2:first-child { margin-top: 0; }
+  .prose p { font-size: 15.5px; line-height: 1.75; color: var(--foreground); margin: 0 0 16px; }
+  .prose ul { margin: 0 0 16px; padding-left: 20px; }
+  .prose li { font-size: 15.5px; line-height: 1.7; color: var(--foreground); margin-bottom: 6px; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  .stub-note { margin-top: 36px; border: 1px dashed var(--border); border-radius: calc(var(--radius) + 4px); padding: 18px 20px; font-size: 14px; color: var(--muted-foreground); line-height: 1.6; }
+  .stub-note strong { color: var(--foreground); font-weight: 500; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 40px; font-size: 14px; font-weight: 500; color: var(--foreground); }
+  .back-link:hover { color: var(--accent); }
+
+  footer.site-footer { border-top: 1px solid var(--border); }
+  .footer-inner { max-width: 1040px; margin: 0 auto; padding: 40px 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--muted-foreground); }
+  .footer-inner .mono { font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Joseph Emmi</a>
+    <nav class="nav-links">
+      <a href="../about.html">About</a><a href="../work.html">Work</a><a href="../projects.html" class="active">Projects</a><a href="../writing.html">Writing</a><a href="../photography.html">Photography</a><a href="../now.html">Now</a><a href="../contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Toggle theme" onclick="document.documentElement.classList.toggle('dark')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+  <p class="eyebrow">Project · Prototype · Early 2026</p>
+  <h1 class="page-title">Recipe app</h1>
+  <p class="page-lede">Speak or type a recipe, get back an ingredient list and a shopping list.</p>
+  <p class="built-with">Built with Claude Code &amp; Cursor</p>
+  <div class="badge-row"><span class="badge badge-outline">Prototype</span></div>
+  <div class="cover" style="background-image:linear-gradient(135deg,#7c2d12 0%,#c2410c 55%,#f59e0b 100%);"></div>
+  <div class="prose">
+    <h2>What it does</h2>
+    <p>Tell it a recipe — by voice or by typing — and it pulls out the ingredients, then turns that into a shopping list. The idea was to remove the annoying middle step of manually transcribing a recipe into something you can actually shop from.</p>
+    <h2>Where it came from</h2>
+    <p>This was the first real thing built with Claude Code and Cursor, early in 2026 — less a product and more a way of finding out what these tools could actually do at the time. It was never finished. Development stopped once the initial experiment had answered the question it was built to answer.</p>
+    </div>
+  <div class="stub-note"><strong>Still missing.</strong> No name yet, and no deeper write-up — this needs screenshots of the interface and a proper account of what worked, what didn't, and where it stalled.</div>
+  <a class="back-link" href="../projects.html">← Back to Projects</a>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>© 2026 Joseph Emmi. All rights reserved.</p>
+    <p class="mono">Built in Glasgow.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Work — Joseph Emmi</title>
+<meta name="description" content="Product, platform and founder work — case studies, public speaking, and a CV on request." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --background: oklch(0.985 0.004 90);
+    --foreground: oklch(0.19 0.01 90);
+    --muted: oklch(0.95 0.006 90);
+    --muted-foreground: oklch(0.46 0.012 90);
+    --border: oklch(0.89 0.008 90);
+    --card: oklch(0.995 0.003 90);
+    --accent: #D62A1B;
+    --accent-foreground: oklch(0.99 0.01 90);
+    --ring: #D62A1B;
+    --radius: 0.625rem;
+    --font-sans: "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
+    --font-serif: "Newsreader", ui-serif, Georgia, serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  }
+  .dark {
+    --background: oklch(0.16 0.006 90);
+    --foreground: oklch(0.93 0.006 90);
+    --muted: oklch(0.22 0.008 90);
+    --muted-foreground: oklch(0.65 0.012 90);
+    --border: oklch(0.29 0.01 90);
+    --card: oklch(0.19 0.007 90);
+    --accent: #FF515D;
+    --accent-foreground: oklch(0.16 0.01 90);
+    --ring: #FF515D;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; transition: background-color .2s, color .2s; }
+  ::selection { background: var(--accent); color: var(--accent-foreground); }
+  a { color: inherit; text-decoration: none; }
+  p { line-height: 1.65; margin: 0; }
+  img { max-width: 100%; display: block; }
+
+  header.site-nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--background) 80%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1040px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-logo { font-family: var(--font-serif); font-size: 17px; font-weight: 500; }
+  .nav-links { display: flex; align-items: center; gap: 2px; }
+  .nav-links a { font-size: 14px; color: var(--muted-foreground); padding: 8px 14px; border-radius: 999px; transition: color .2s, background-color .2s; }
+  .nav-links a:hover { background: var(--muted); color: var(--foreground); }
+  .nav-links a.active { color: var(--foreground); background: var(--muted); }
+  .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 999px; border: none; background: transparent; color: var(--foreground); cursor: pointer; transition: background-color .2s; }
+  .icon-btn:hover { background: var(--muted); }
+  .icon-btn svg { width: 17px; height: 17px; }
+  @media (max-width: 780px) { .nav-links { display: none; } }
+
+  main { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  section.block { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section.block:last-of-type { border-bottom: none; }
+
+  .page-head { padding: 56px 0 8px; }
+  .eyebrow { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 0; }
+  h1.page-title { font-family: var(--font-serif); font-weight: 500; font-size: 44px; line-height: 1.1; letter-spacing: -.01em; margin: 14px 0 0; max-width: 640px; }
+  .page-lede { font-size: 17px; line-height: 1.6; color: var(--muted-foreground); max-width: 580px; margin: 16px 0 0; }
+
+  h2.section-title { font-family: var(--font-serif); font-weight: 500; font-size: 26px; margin: 0; letter-spacing: -.01em; }
+  .section-desc { color: var(--muted-foreground); margin: 8px 0 0; max-width: 560px; line-height: 1.6; }
+  .section-head { margin-bottom: 28px; }
+
+  /* CV request */
+  .cv-card { border: 1px solid var(--border); border-radius: calc(var(--radius) + 6px); background: var(--card); padding: 32px; display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-end; justify-content: space-between; }
+  .cv-copy { max-width: 400px; }
+  .cv-copy h3 { font-family: var(--font-serif); font-weight: 500; font-size: 20px; margin: 0; }
+  .cv-copy p { color: var(--muted-foreground); margin: 8px 0 0; font-size: 14px; line-height: 1.6; }
+  .cv-form { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cv-form input[type="email"] {
+    font-family: var(--font-sans); font-size: 14px; padding: 12px 16px;
+    border-radius: 999px; border: 1px solid var(--border); background: var(--background);
+    color: var(--foreground); min-width: 240px; outline: none;
+  }
+  .cv-form input[type="email"]:focus { border-color: var(--accent); }
+  .btn {
+    font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 8px;
+    border-radius: 999px; padding: 12px 22px; border: 1px solid transparent;
+    cursor: pointer; text-decoration: none; transition: opacity .2s, background-color .2s;
+  }
+  .btn-default { background: var(--foreground); color: var(--background); }
+  .btn-default:hover { opacity: .9; }
+  .btn-outline { background: transparent; color: var(--foreground); border-color: var(--border); }
+  .btn-outline:hover { background: var(--muted); }
+  .cv-note { width: 100%; font-size: 12px; color: var(--muted-foreground); margin-top: 4px; }
+
+  /* public speaking */
+  .video-wrap { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: var(--muted); display: block; }
+  .video-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .video-play {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    background: color-mix(in srgb, black 20%, transparent); transition: background-color .2s;
+  }
+  .video-wrap:hover .video-play { background: color-mix(in srgb, black 35%, transparent); }
+  .video-play-btn {
+    width: 68px; height: 68px; border-radius: 50%; background: white;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,.25); transition: transform .2s;
+  }
+  .video-wrap:hover .video-play-btn { transform: scale(1.06); }
+  .video-play-btn svg { width: 24px; height: 24px; margin-left: 3px; }
+  .speaking-caption { margin-top: 14px; font-size: 14px; color: var(--muted-foreground); }
+
+  .speaking-list { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .speaking-list-label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted-foreground); margin: 0 0 12px; }
+  .speaking-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid var(--border); }
+  .speaking-row:first-of-type { border-top: none; }
+  .speaking-event { font-family: var(--font-serif); font-size: 16px; }
+  .speaking-tbd { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; color: var(--accent); border: 1px dashed color-mix(in srgb, var(--accent) 50%, transparent); border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
+
+  /* case study list (row layout) */
+  .cs-list { display: flex; flex-direction: column; }
+  .cs-row {
+    display: flex; gap: 40px; padding: 36px 0;
+    border-top: 1px solid var(--border);
+  }
+  .cs-row:first-child { border-top: none; padding-top: 0; }
+  .cs-cover {
+    flex: 0 0 340px; aspect-ratio: 4/3; border-radius: var(--radius);
+    overflow: hidden; border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    background: var(--muted); transition: transform .3s ease;
+  }
+  .cs-row:hover .cs-cover { transform: scale(1.01); }
+  .cs-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .cs-content { flex: 1; min-width: 0; padding-top: 4px; }
+  .cs-meta { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted-foreground); margin: 0; }
+  .cs-title { font-family: var(--font-serif); font-size: 26px; font-weight: 500; letter-spacing: -.01em; margin: 8px 0 0; transition: color .2s; }
+  .cs-row:hover .cs-title { color: var(--accent); }
+  .cs-desc { font-size: 15px; line-height: 1.6; color: var(--muted-foreground); margin: 12px 0 0; max-width: 560px; }
+  .cs-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .cs-tag { font-family: var(--font-mono); font-size: 12px; color: var(--muted-foreground); background: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 5px 13px; }
+
+  @media (max-width: 700px) {
+    .cs-row { flex-direction: column; gap: 20px; }
+    .cs-cover { flex: none; width: 100%; }
+  }
+
+  footer.site-footer { border-top: 1px solid var(--border); }
+  .footer-inner { max-width: 1040px; margin: 0 auto; padding: 48px 24px; }
+  .footer-top { display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between; }
+  .footer-brand { max-width: 320px; }
+  .footer-brand p.name { font-family: var(--font-serif); font-size: 18px; margin: 0; }
+  .footer-brand p.tag { font-size: 14px; color: var(--muted-foreground); margin: 8px 0 0; line-height: 1.6; }
+  .footer-cols { display: flex; gap: 56px; flex-wrap: wrap; }
+  .footer-col { display: flex; flex-direction: column; gap: 8px; }
+  .footer-col span.label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted-foreground); margin-bottom: 4px; }
+  .footer-col a { font-size: 14px; color: var(--muted-foreground); transition: color .2s; }
+  .footer-col a:hover { color: var(--foreground); }
+  .footer-bottom { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted-foreground); }
+  .footer-bottom .mono { font-family: var(--font-mono); }
+
+  @media (max-width: 640px) {
+    h1.page-title { font-size: 34px; }
+    .cv-card { flex-direction: column; align-items: stretch; }
+    .cv-form input[type="email"] { min-width: 0; flex: 1; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Joseph Emmi</a>
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="projects.html">Projects</a>
+      <a href="writing.html">Writing</a>
+      <a href="photography.html">Photography</a>
+      <a href="now.html">Now</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Toggle theme" onclick="document.documentElement.classList.toggle('dark')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ SUMMARY ============ -->
+  <section class="page-head">
+    <p class="eyebrow">Work</p>
+    <h1 class="page-title">Product management, design, and the odd voice interface.</h1>
+    <p class="page-lede">I've spent my career at the intersection of product, design and research — mostly inside large organisations (Scottish Water, Weir Group), occasionally as a founder building something of my own. The thread running through all of it: understand the problem properly before you touch the solution.</p>
+  </section>
+
+  <!-- ============ CV REQUEST ============ -->
+  <section class="block">
+    <div class="cv-card">
+      <div class="cv-copy">
+        <h3>Want the full CV?</h3>
+        <p>Leave your email and I'll send it over directly.</p>
+      </div>
+      <form class="cv-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="you@email.com" required />
+        <input type="hidden" name="_replyto" value="hello@josephemmi.com" />
+        <button type="submit" class="btn btn-default">Request CV</button>
+        <span class="cv-note">Goes straight to hello@josephemmi.com — I'll reply by hand, usually within a day or two.</span>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ CASE STUDIES ============ -->
+  <section class="block">
+    <div class="section-head">
+      <h2 class="section-title">Professional case studies</h2>
+      <p class="section-desc">A closer look at how I've approached product — from platform work inside Scottish Water and Weir Group to founding and running Agatha end to end.</p>
+    </div>
+
+    <div class="cs-list">
+
+      <a class="cs-row" href="work/momentini.html">
+        <div class="cs-cover" style="background-image:linear-gradient(135deg,#4c0519 0%,#9f1239 55%,#fb7185 100%);"></div>
+        <div class="cs-content">
+          <p class="cs-meta">Personal build · July 2026 – Present</p>
+          <h3 class="cs-title">Momentini</h3>
+          <p class="cs-desc">A baby tracker built with Claude Code, used daily. Responsive, multi-user, iPad-first — with a live Linear roadmap behind it.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Personal Build</span>
+            <span class="cs-tag">Claude Code</span>
+            <span class="cs-tag">Full-Stack</span>
+            <span class="cs-tag">Baby Tracker</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cs-row" href="work/proactive-journeys.html">
+        <div class="cs-cover">
+          <img src="images/work/work-01-4f2dd28511.jpg" alt="Proactive Journeys — Weir Customer Portal" loading="lazy" />
+        </div>
+        <div class="cs-content">
+          <p class="cs-meta">Weir Group · 2021 – 2022</p>
+          <h3 class="cs-title">Proactive Journeys</h3>
+          <p class="cs-desc">A feature that provides self-service sign-up and access requests for Weir's Customer Portal. I took it from discovery to a shipped, tested release.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Product Strategy</span>
+            <span class="cs-tag">Self-Service</span>
+            <span class="cs-tag">B2B</span>
+            <span class="cs-tag">Customer Portal</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cs-row" href="work/sw-one.html">
+        <div class="cs-cover">
+          <img src="https://static.wixstatic.com/media/a1f149_cd830269a1c54a6fa45c2b982e5193c4~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screen%20Shot%202018-09-01%20at%2015_42_46_edite.jpg" alt="SW One — Scottish Water event management" loading="lazy" />
+        </div>
+        <div class="cs-content">
+          <p class="cs-meta">Scottish Water · 2018</p>
+          <h3 class="cs-title">SW One</h3>
+          <p class="cs-desc">A mobile and web solution for creating and managing events for Scottish Water's Executive and Senior Leaders — built on existing platforms rather than a new app, saving the business over £50K a year.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Mobile &amp; Web</span>
+            <span class="cs-tag">Event Management</span>
+            <span class="cs-tag">B2B</span>
+            <span class="cs-tag">Full-Stack</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cs-row" href="work/alexa-skill.html">
+        <div class="cs-cover">
+          <img src="https://static.wixstatic.com/media/a1f149_2d2b92fcd7a745788bdaf389e393caa9~mv2.png/v1/fill/w_800,h_600,al_t,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_2d2b92fcd7a745788bdaf389e393caa9~mv2.png" alt="Alexa Skill — voice interface demo" loading="lazy" />
+        </div>
+        <div class="cs-content">
+          <p class="cs-meta">Scottish Water · 2018</p>
+          <h3 class="cs-title">Alexa Skill</h3>
+          <p class="cs-desc">A voice interface built to show senior leaders what conversational AI could do for customer service, before anyone had asked the question.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Voice UX</span>
+            <span class="cs-tag">Innovation</span>
+            <span class="cs-tag">Customer Service</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="cs-row" href="work/agatha.html">
+        <div class="cs-cover">
+          <img src="https://static.wixstatic.com/media/a1f149_7052b1cf304545fa92ae353e5b6ea780~mv2_d_2928_2071_s_2.png/v1/fill/w_800,h_600,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a1f149_7052b1cf304545fa92ae353e5b6ea780~mv2_d_2928_2071_s_2.png" alt="Agatha — safety app for solo runners and cyclists" loading="lazy" />
+        </div>
+        <div class="cs-content">
+          <p class="cs-meta">Founder · 2015 – 2018</p>
+          <h3 class="cs-title">Agatha</h3>
+          <p class="cs-desc">A mobile app for solo runners and cyclists that could raise the alarm when they couldn't.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Founder</span>
+            <span class="cs-tag">iOS</span>
+            <span class="cs-tag">watchOS</span>
+            <span class="cs-tag">Safety</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ PUBLIC SPEAKING ============ -->
+  <section class="block" style="border-bottom: none;">
+    <div class="section-head">
+      <h2 class="section-title">Public speaking</h2>
+      <p class="section-desc">A talk on voice interfaces and what they meant for customer service at Scottish Water.</p>
+    </div>
+    <a class="video-wrap" href="https://www.youtube.com/watch?v=zPku4al4P7Y" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.youtube.com/vi/zPku4al4P7Y/maxresdefault.jpg" alt="Public speaking — Joseph Emmi" loading="lazy" />
+      <div class="video-play">
+        <div class="video-play-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+    </a>
+    <p class="speaking-caption">Title, event and date to be confirmed — placeholder caption for now. Opens on YouTube.</p>
+
+    <div class="speaking-list">
+      <p class="speaking-list-label">Also spoken at</p>
+      <div class="speaking-row">
+        <span class="speaking-event">Enterprise Mobility Exchange — Berlin</span>
+        <span class="speaking-tbd">Date TBC</span>
+      </div>
+      <div class="speaking-row">
+        <span class="speaking-event">UX Scotland — Edinburgh</span>
+        <span class="speaking-tbd">Date TBC</span>
+      </div>
+      <div class="speaking-row">
+        <span class="speaking-event">Edinburgh Napier University — Guest lecturer</span>
+        <span class="speaking-tbd">Date TBC</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="name">Joseph Emmi</p>
+        <p class="tag">I build products, explore ideas and document the things I find interesting.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <span class="label">Site</span>
+          <a href="about.html">About</a>
+          <a href="work.html">Work</a>
+          <a href="writing.html">Writing</a>
+          <a href="photography.html">Photography</a>
+          <a href="now.html">Now</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <span class="label">Elsewhere</span>
+          <a href="https://www.linkedin.com/in/josephemmi" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/josephemmi" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://medium.com/@josephemmi" target="_blank" rel="noopener noreferrer">Medium</a>
+          <a href="https://github.com/josephemmi" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Joseph Emmi. All rights reserved.</p>
+      <p class="mono">Built in Glasgow.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
