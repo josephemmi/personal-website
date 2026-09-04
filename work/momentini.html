@@ -15,6 +15,12 @@
      column and supplies its own top padding (see .nestlog-case-study below),
      so <main> here gets a page-local width override on top of main-flush. */
   main.momentini-main { max-width: 1160px; }
+  /* The standalone artifact's whole page was one continuous cream tone
+     (#fbf7ec). The site's own body background is a near-white token
+     (--background), so without this override the page shows a visible
+     seam of site-white around the case study's cream content. */
+  body { background: #fbf7ec; }
+  html.dark body { background: #1c1b17; }
 </style>
 <style>
 .nestlog-case-study {
@@ -258,7 +264,7 @@
   }
 
   .nestlog-case-study .nestlog-jumpnav {
-    position: relative;
+    position: sticky; top: 64px; z-index: 30;
     background: var(--paper); border-bottom: 1px solid var(--line);
     margin-bottom: 8px;
   }
