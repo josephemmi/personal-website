@@ -142,8 +142,8 @@
   }.nestlog-case-study .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }.nestlog-case-study h1.hero-title {
     font-family: var(--font-display); font-weight: 600; font-size: clamp(34px, 4.6vw, 54px);
     line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 20px; text-wrap: balance;
-  }.nestlog-case-study .hero-title em { font-style: normal; color: var(--sage); }.nestlog-case-study p.hero-sub { font-size: 17px; color: var(--ink-soft); max-width: 46ch; margin: 0 0 28px; }.nestlog-case-study .hero-stats { display: flex; flex-wrap: wrap; gap: 10px; }.nestlog-case-study .stat-chip {
-    display: flex; flex-direction: column; gap: 2px;
+  }.nestlog-case-study .hero-title em { font-style: normal; color: var(--sage); }.nestlog-case-study p.hero-sub { font-size: 17px; color: var(--ink-soft); max-width: 46ch; margin: 0 0 28px; }.nestlog-case-study .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }@media (max-width: 520px) {.nestlog-case-study .hero-stats { grid-template-columns: repeat(2, 1fr); } }.nestlog-case-study .stat-chip {
+    display: flex; flex-direction: column; gap: 2px; min-width: 0;
     background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius);
     padding: 10px 16px; box-shadow: var(--shadow-card);
   }.nestlog-case-study .stat-chip b { font-family: var(--font-mono); font-size: 18px; font-variant-numeric: tabular-nums; }.nestlog-case-study .stat-chip span { font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); }.nestlog-case-study .hero-visual { position: relative; }.nestlog-case-study .phone-frame {
@@ -422,7 +422,7 @@
     <div>
       <p class="eyebrow">Product case study &middot; shipped in 2 weeks</p>
       <h1 class="hero-title">Built out of need, curiosity, and the opportunity to learn and experiment. Handy every day since, <em>especially at 3&nbsp;am</em>.</h1>
-      <p class="hero-sub">Nestlog is the baby log app my fianc&eacute;e and I have been using since our first weeks home with our newborn baby boy. Every feed, nappy, pump, and breastfeeding session is synced across our various devices around the house the moment it's logged. Easy to use. Quick to log. Handy all the time.</p>
+      <p class="hero-sub">Nestlog is the baby log app my fianc&eacute;e and I have been using since our first weeks home with our newborn baby boy. Every feed, nappy, pump, and breastfeeding session is synced across our various devices around the house the moment it's logged. Easy to use. Quick to log. Handy EVERY.SINGLE.TIME.</p>
       <div class="hero-stats">
         <div class="stat-chip"><b>16</b><span>Releases</span></div>
         <div class="stat-chip"><b>2</b><span>Weeks to v1.0</span></div>
@@ -442,22 +442,22 @@
 <section id="vision" class="alt">
   <div class="wrap">
     <div class="section-head">
-      <p class="section-kicker">The brief</p>
-      <h2 class="section-title">A log, not a database with a login screen.</h2>
-      <p class="section-dek">I knew there were other trackers out there. But the driver was simpler than picking a winner: build something that actually fit how we needed to use it, and use it as a chance to get better at building applications with Claude Code.</p>
+      <p class="section-kicker">Vision</p>
+      <h2 class="section-title">A log, not a database.</h2>
+      <p class="section-dek">I knew there were other applications available that could do what we needed, but we didn't even bother looking; for me, it was very simple. I wanted to build this app for us, and I wanted to get better at building with AI.</p>
     </div>
     <div class="prd-grid">
       <div class="prd-card problem">
         <p class="prd-label">Problem</p>
-        <p>Paper trackers are simple enough on their own. But as the data grew, it got harder to interrogate &mdash; and we knew we'd be doing this for a long time. After a while paper stops being sustainable: keeping it, reading it back, digging into it when you actually need to, and just storing enough pages becomes a hassle.</p>
+        <p>A paper tracker was the starting point; it is simple, easy and quick to fill. However, as the data grew rapidly, it got harder to interrogate, and it would only get worse. After a while, paper stops being sustainable: keeping it, reading it back, digging into a specific date you need to check, and storing enough pages. It becomes a hassle.</p>
       </div>
       <div class="prd-card approach">
         <p class="prd-label">Approach</p>
-        <p>A tightly scoped app, built first to mirror the paper tracker's simplicity &mdash; log a feed, a nappy change, a pump or breastfeeding session, same as before. But with the benefits an app brings: no worrying about where the data lives, and being able to look back and interrogate it with ease. It also had to work across the devices already scattered around the house. Not mobile native by design &mdash; iPad and tablet came first, being the devices we reach for most, with phones as the natural second.</p>
+        <p>A narrowly scoped application, built to mirror the paper tracker's simplicity: log a feed, a nappy change, a pump or breastfeeding session, but with the benefits an app brings: no growing A4 pages, and worrying they're getting mixed or damaged, and most importantly, being able to look back and interrogate the data with ease. It also had to work across all the devices around the house (an Android phone, an iPhone, an iPad). Native builds were out of scope.</p>
       </div>
       <div class="prd-card outcome">
         <p class="prd-label">Outcome</p>
-        <p>Shipped an app we've used every day since, continuously updated with new features, bug fixes, and performance improvements &mdash; alongside the chance to learn, properly, how to design, build, and productionise an application built entirely on AI (Claude Code). It also gave me the opportunity to build my own workflow fully reliant on AI, and to keep extending it: automating skills, integrating tools like Linear to track improvements and manage the backlog.</p>
+        <p>Shipped an app we've used every day since, continuously updating it with new features, bug fixes, and performance improvements. The opportunity to get better at properly delivering an app, from design and build, to a productionised application built entirely on AI (Claude Code). It also gave me the opportunity to build my own workflow fully reliant on AI, and to keep extending it: automating skills, integrating tools like Linear to track improvements and manage the backlog.</p>
       </div>
     </div>
   </div>
@@ -466,9 +466,9 @@
 <section id="features">
   <div class="wrap">
     <div class="section-head">
-      <p class="section-kicker">What it does</p>
-      <h2 class="section-title">Key features</h2>
-      <p class="section-dek">Scoped tight, shipped fast &mdash; every feature below went from spec to production in this same two-week window.</p>
+      <p class="section-kicker">Key features</p>
+      <h2 class="section-title">What it does</h2>
+      <p class="section-dek">Every feature below follows the same workflow, from spec to shipped.</p>
     </div>
     <div class="feature-grid">
 
@@ -567,9 +567,9 @@
 <section id="origin" class="alt">
   <div class="wrap">
     <div class="section-head">
-      <p class="section-kicker">Where it started</p>
+      <p class="section-kicker">Origin story</p>
       <h2 class="section-title">One piece of paper on the fridge, then an app.</h2>
-      <p class="section-dek">Nestlog wasn't planned as a product. It grew out of a real, repeated need in the first weeks of our son's life.</p>
+      <p class="section-dek">From a real need to experimentation and curiosity to continuous delivery and improvement.</p>
     </div>
 
     <div class="process-track">
@@ -624,7 +624,7 @@
           <span class="process-line" aria-hidden="true"></span>
         </div>
         <h3>The paper tracker hits its limit</h3>
-        <p>V2.0 works perfectly, right up until the data outgrows it. Spotting patterns &mdash; how often he eats on average &mdash; and answering the same questions, especially for his mum, gets harder, not easier.</p>
+        <p>V2.0 works perfectly, right up until the data outgrows it. Spotting patterns (how often he eats on average) and answering the same questions, especially for his mum, gets harder, not easier.</p>
       </div>
 
       <div class="process-step">
@@ -641,7 +641,7 @@
           <span class="process-num">8</span>
         </div>
         <h3>Continuous iteration</h3>
-        <p>Bug fixes, small enhancements, new features. Added constantly, based on what the two people actually using it &mdash; Jen and I &mdash; need next.</p>
+        <p>Bug fixes, small enhancements, new features. Added constantly, based on what the two people actually using it (Jen and I) need next.</p>
       </div>
     </div>
   </div>
@@ -703,7 +703,7 @@
         </div>
         <p class="process-tool-tag">Vercel</p>
         <h3>Merging is the deploy</h3>
-        <p>No staging gate sits between them. Once it's approved, merging to production and shipping are the same action &mdash; verified once the deploy comes back READY.</p>
+        <p>No staging gate sits between them. Once it's approved, merging to production and shipping are the same action. Verified once the deploy comes back READY.</p>
       </div>
 
       <div class="process-step" data-tool="linear">
@@ -716,7 +716,7 @@
       </div>
     </div>
 
-    <p class="workflow-subhead">Not every step moves forward &mdash; the two loops</p>
+    <p class="workflow-subhead">Not every step moves forward: the two loops</p>
     <div class="loops">
       <div class="loop-row rose">
         <span class="tag">Review loop</span>
@@ -724,7 +724,7 @@
       </div>
       <div class="loop-row plum">
         <span class="tag">Release loop</span>
-        <p>Shipped tickets sit in CHANGELOG.md's Unreleased section until it's actually time to cut a version &mdash; never automatic, never assumed.</p>
+        <p>Shipped tickets sit in CHANGELOG.md's Unreleased section until it's actually time to cut a version. Never automatic, never assumed.</p>
       </div>
     </div>
 
@@ -741,7 +741,7 @@
       <pre class="mermaid">
 %%{init: {'theme':'base', 'themeVariables': {'background':'#FBF7EC','primaryColor':'#FFFDF8','primaryTextColor':'#2A2A26','primaryBorderColor':'#CFC4A9','lineColor':'#6B6A63','tertiaryColor':'#FFFDF8','fontFamily':'IBM Plex Sans, sans-serif','fontSize':'14px'}}}%%
 flowchart TD
-  subgraph P0["0 &middot; IDEA + SPEC &mdash; Project chat"]
+  subgraph P0["0 &middot; IDEA + SPEC, Project chat"]
     A1["Discuss the fix/feature,<br/>build a prototype"]
     A2["momentini-handoff skill:<br/>version + upload to Drive,<br/>find/create JOS-NN,<br/>label &rarr; Ready to Build"]
     A3["Final Claude Code prompt"]
@@ -768,13 +768,13 @@ flowchart TD
   end
 
   subgraph P4["4 &middot; MERGE + SHIP"]
-    E1["Merge &mdash; Vercel auto-deploys,<br/>no staging gate"]
+    E1["Merge, Vercel auto-deploys,<br/>no staging gate"]
     E2["Verify deploy READY"]
     E3["Ticket &rarr; Done, labeled +<br/>PROJECT_LOG.md updated"]
     E1 --> E2 --> E3
   end
 
-  subgraph P5["5 &middot; RELEASE CUT &mdash; periodic"]
+  subgraph P5["5 &middot; RELEASE CUT, periodic"]
     F1["Claude checks in:<br/>time to cut a release?"]
     F2["Unreleased &rarr; dated<br/>CHANGELOG.md section,<br/>version confirmed w/ Joseph"]
     F3["Generate release-notes PDF<br/>+ screenshots"]
@@ -808,8 +808,8 @@ flowchart TD
       <div class="workflow-legend-item"><span class="swatch" style="background:#C98A2E"></span><div><strong>Idea + Spec</strong><span>Project chat &rarr; prototype &rarr; Drive + a Linear ticket, Ready to Build.</span></div></div>
       <div class="workflow-legend-item"><span class="swatch" style="background:#CFC4A9"></span><div><strong>Handoff</strong><span>The prompt lands in a Claude Code session, which reads the repo's own docs.</span></div></div>
       <div class="workflow-legend-item"><span class="swatch" style="background:#3F7391"></span><div><strong>Implement</strong><span>New branch, build, verify without a live DB, then the full check suite.</span></div></div>
-      <div class="workflow-legend-item"><span class="swatch" style="background:#B15E7C"></span><div><strong>Review</strong><span>A real PR, a real diff, a real preview URL &mdash; never a guessed one.</span></div></div>
-      <div class="workflow-legend-item"><span class="swatch" style="background:#4F7566"></span><div><strong>Merge + Ship</strong><span>Merging is the deploy &mdash; no staging gate sits between them.</span></div></div>
+      <div class="workflow-legend-item"><span class="swatch" style="background:#B15E7C"></span><div><strong>Review</strong><span>A real PR, a real diff, a real preview URL. Never a guessed one.</span></div></div>
+      <div class="workflow-legend-item"><span class="swatch" style="background:#4F7566"></span><div><strong>Merge + Ship</strong><span>Merging is the deploy. No staging gate sits between them.</span></div></div>
       <div class="workflow-legend-item"><span class="swatch" style="background:#7C6A9E"></span><div><strong>Release Cut</strong><span>Periodic, confirmed with Joseph, scoped to what's actually shipped.</span></div></div>
     </div>
 
@@ -864,7 +864,7 @@ flowchart TD
             <div class="change-group">
               <span class="change-label changed">Changed</span>
               <ul class="change-list">
-                <li>Deleting a moment now shows a custom in-app confirmation modal instead of the browser's native confirm dialog, whose auto-generated title bar read as unfinished &mdash; Cancel (outline) and Delete (filled, rose) match the approved prototype, with no change to the delete logic or the 7-day soft-delete window itself</li>
+                <li>Deleting a moment now shows a custom in-app confirmation modal instead of the browser's native confirm dialog, whose auto-generated title bar read as unfinished. Cancel (outline) and Delete (filled, rose) match the approved prototype, with no change to the delete logic or the 7-day soft-delete window itself</li>
                 <li>Timeline's deleted-entries banner now reads &ldquo;Recently Deleted (N) &middot; Tap to restore&rdquo; instead of &ldquo;N deleted entries &middot; tap to restore,&rdquo; so it actually names the section the confirmation modal points to</li>
               </ul>
             </div>
@@ -889,10 +889,10 @@ flowchart TD
             <div class="change-group">
               <span class="change-label fixed">Fixed</span>
               <ul class="change-list">
-                <li>Bottle/Pump mL amounts and the time editor could silently fail to save on Android Chrome, which doesn't reliably fire a blur event when the on-screen keyboard is dismissed via its own control rather than a tap elsewhere &mdash; the mL fields now also commit on a short debounce after typing stops, and the time editor force-blurs on Enter as a lighter safety net</li>
+                <li>Bottle/Pump mL amounts and the time editor could silently fail to save on Android Chrome, which doesn't reliably fire a blur event when the on-screen keyboard is dismissed via its own control rather than a tap elsewhere. The mL fields now also commit on a short debounce after typing stops, and the time editor force-blurs on Enter as a lighter safety net</li>
               </ul>
             </div>
-            <p class="no-shot-note">A silent-save fix with no visual change &mdash; nothing to see, which is the point.</p>
+            <p class="no-shot-note">A silent-save fix with no visual change, nothing to see, which is the point.</p>
           </div>
         </div>
       </article>
@@ -907,15 +907,15 @@ flowchart TD
             <div class="change-group">
               <span class="change-label changed">Changed</span>
               <ul class="change-list">
-                <li>Home's entry list is now day-aware instead of a flat entry-count cap &mdash; every entry from today, in full, plus the last 3 entries from the previous calendar day only, for continuity when checking the last logged moment overnight</li>
+                <li>Home's entry list is now day-aware instead of a flat entry-count cap. Every entry from today, in full, plus the last 3 entries from the previous calendar day only, for continuity when checking the last logged moment overnight</li>
                 <li>Today and Yesterday both get an equally prominent sage-green divider with extra breathing room above it, so the boundary reads clearly even scrolling quickly</li>
-                <li>Since the divider now states the day, each entry's field only shows its time, not the full date &mdash; tapping it still opens the full date+time editor</li>
+                <li>Since the divider now states the day, each entry's field only shows its time, not the full date. Tapping it still opens the full date+time editor</li>
               </ul>
             </div>
             <div class="change-group">
               <span class="change-label fixed">Fixed</span>
               <ul class="change-list">
-                <li>Times could render in 24-hour format instead of AM/PM depending on the viewer's device locale &mdash; AM/PM is now forced everywhere a time displays, regardless of locale</li>
+                <li>Times could render in 24-hour format instead of AM/PM depending on the viewer's device locale. AM/PM is now forced everywhere a time displays, regardless of locale</li>
               </ul>
             </div>
           </div>
@@ -942,9 +942,9 @@ flowchart TD
             <div class="change-group">
               <span class="change-label added">Added</span>
               <ul class="change-list">
-                <li>Deleting a moment &mdash; via the checkbox uncheck, the phone card's &times;, or bulk select-and-delete &mdash; is now a 7-day recoverable soft-delete instead of a permanent one</li>
+                <li>Deleting a moment (via the checkbox uncheck, the phone card's &times;, or bulk select-and-delete) is now a 7-day recoverable soft-delete instead of a permanent one</li>
                 <li>A banner inside Timeline shows the number of recoverable moments and appears only when there's something to restore, opening a "Recently Deleted" screen listing what was deleted, by whom, and how long it's got left</li>
-                <li>Each deleted moment restores and displays as one whole card &mdash; a pee + poo logged together restores together, matching how it looked before deletion</li>
+                <li>Each deleted moment restores and displays as one whole card. A pee + poo logged together restores together, matching how it looked before deletion</li>
                 <li>Restoring flashes the card back into its correct chronological position on Timeline, with a smooth transition on both ends</li>
               </ul>
             </div>
@@ -973,11 +973,11 @@ flowchart TD
             <div class="change-group">
               <span class="change-label fixed">Fixed</span>
               <ul class="change-list">
-                <li>Reports page capped out at an old date instead of showing entries through today &mdash; a single unpaginated database query silently dropped everything past its first 1,000 rows, cutting off the newest entries once a baby passed that count</li>
+                <li>Reports page capped out at an old date instead of showing entries through today. A single unpaginated database query silently dropped everything past its first 1,000 rows, cutting off the newest entries once a baby passed that count</li>
                 <li>Reports now pages through the full entry history in batches until nothing's left, so every entry loads no matter how large the log gets</li>
               </ul>
             </div>
-            <p class="no-shot-note">A data-fetching fix with no new UI of its own &mdash; no data was ever at risk, this only affected what one screen displayed.</p>
+            <p class="no-shot-note">A data-fetching fix with no new UI of its own. No data was ever at risk, this only affected what one screen displayed.</p>
           </div>
         </div>
       </article>
@@ -992,9 +992,9 @@ flowchart TD
             <div class="change-group">
               <span class="change-label added">Added</span>
               <ul class="change-list">
-                <li>Per-side breastfeeding timer (Right/Left) &mdash; an inline panel, no modal, with Left/Right start-pause buttons that auto-pause each other</li>
+                <li>Per-side breastfeeding timer (Right/Left), an inline panel, no modal, with Left/Right start-pause buttons that auto-pause each other</li>
                 <li>Session stays open across any number of pauses/switches until an explicit "End Session"</li>
-                <li>Elapsed time computed from a stored start timestamp, not counted tick-by-tick &mdash; stays correct even after the app is backgrounded</li>
+                <li>Elapsed time computed from a stored start timestamp, not counted tick-by-tick. Stays correct even after the app is backgrounded</li>
                 <li>In-progress sessions sync live across devices, including a read-only ticking view on Timeline</li>
                 <li>Reports: two new stat cards, a Right-vs-Left chart, and three new Daily Summary columns</li>
               </ul>
@@ -1024,10 +1024,10 @@ flowchart TD
             <div class="change-group">
               <span class="change-label fixed">Fixed</span>
               <ul class="change-list">
-                <li>Reports charts no longer force the page to scroll sideways on phones once a range has enough bars &mdash; both charts scroll horizontally inside their own card instead</li>
+                <li>Reports charts no longer force the page to scroll sideways on phones once a range has enough bars. Both charts scroll horizontally inside their own card instead</li>
               </ul>
             </div>
-            <p class="no-shot-note">A layout fix with no new UI of its own &mdash; the chart behaves correctly rather than looking different.</p>
+            <p class="no-shot-note">A layout fix with no new UI of its own. The chart behaves correctly rather than looking different.</p>
           </div>
         </div>
       </article>
@@ -1043,11 +1043,11 @@ flowchart TD
             <div class="change-group">
               <span class="change-label fixed">Fixed</span>
               <ul class="change-list">
-                <li>Realtime channel was being torn down and rebuilt on every poll tick, not just genuine reconnects &mdash; that churn was plausibly destabilizing the realtime tenant itself</li>
+                <li>Realtime channel was being torn down and rebuilt on every poll tick, not just genuine reconnects. That churn was plausibly destabilizing the realtime tenant itself</li>
                 <li>Poll now only refetches; the channel rebuilds only on an actual "we're back" signal</li>
               </ul>
             </div>
-            <p class="no-shot-note">An under-the-hood sync fix &mdash; nothing to see, which is the point.</p>
+            <p class="no-shot-note">An under-the-hood sync fix, nothing to see, which is the point.</p>
           </div>
         </div>
       </article>
@@ -1062,7 +1062,7 @@ flowchart TD
             <div class="change-group">
               <span class="change-label added">Added</span>
               <ul class="change-list">
-                <li>The pumped-volume chart now shows session count alongside volume &mdash; a day with lower volume but far more sessions reads at a glance</li>
+                <li>The pumped-volume chart now shows session count alongside volume. A day with lower volume but far more sessions reads at a glance</li>
                 <li>Daily Summary table gets a new "Pump sessions" column; the whole table is now center-aligned</li>
               </ul>
             </div>
@@ -1117,10 +1117,10 @@ flowchart TD
               <span class="change-label fixed">Fixed</span>
               <ul class="change-list">
                 <li>iPad PWA no longer pops the native date/time picker open on relaunch</li>
-                <li>Entries from another device could go missing until force-close &mdash; Home now resyncs on every plausible "we're back" signal and polls every 20s while open</li>
+                <li>Entries from another device could go missing until force-close. Home now resyncs on every plausible "we're back" signal and polls every 20s while open</li>
               </ul>
             </div>
-            <p class="no-shot-note">Two reliability fixes &mdash; no new UI.</p>
+            <p class="no-shot-note">Two reliability fixes, no new UI.</p>
           </div>
         </div>
       </article>
@@ -1135,7 +1135,7 @@ flowchart TD
             <div class="change-group">
               <span class="change-label added">Added</span>
               <ul class="change-list">
-                <li>Pump tracking &mdash; its own Pump chip on Home and Timeline, logged as an independent entry</li>
+                <li>Pump tracking (its own Pump chip on Home and Timeline), logged as an independent entry</li>
                 <li>Reports: Pump sessions and Total pumped stat cards, a pumped-mL-by-day chart</li>
                 <li>Timeline: a Pump filter chip alongside Bottle/Breast/Poo/Pee</li>
               </ul>
@@ -1160,8 +1160,8 @@ flowchart TD
             <div class="change-group">
               <span class="change-label added">Added</span>
               <ul class="change-list">
-                <li>Installable as a PWA &mdash; "Add to Home Screen" launches Nestlog fullscreen with its own icon</li>
-                <li>A minimal service worker caches static assets for faster repeat loads &mdash; it never caches data, so logged entries are always fresh</li>
+                <li>Installable as a PWA. "Add to Home Screen" launches Nestlog fullscreen with its own icon</li>
+                <li>A minimal service worker caches static assets for faster repeat loads. It never caches data, so logged entries are always fresh</li>
               </ul>
             </div>
           </div>
@@ -1209,7 +1209,7 @@ flowchart TD
             <div class="change-group">
               <span class="change-label added">Added</span>
               <ul class="change-list">
-                <li>Feed logging splits into independent Bottle and Breast toggles &mdash; either, both, or neither, matching how real feeds happen</li>
+                <li>Feed logging splits into independent Bottle and Breast toggles: either, both, or neither, matching how real feeds happen</li>
                 <li>Reports: split stat cards, a bottle-only mL chart, a grouped Bottle vs. Breast chart</li>
               </ul>
             </div>
@@ -1235,7 +1235,7 @@ flowchart TD
               <span class="change-label added">Added</span>
               <ul class="change-list">
                 <li>Email/password and Google sign-in, with invite-code household onboarding</li>
-                <li>Matrix-style Home screen &mdash; one row per moment, every field editable in place, no modal</li>
+                <li>Matrix-style Home screen: one row per moment, every field editable in place, no modal</li>
                 <li>Realtime sync, Timeline history, and a full Reports tab with stat cards, charts, and date filters</li>
               </ul>
             </div>
@@ -1467,7 +1467,7 @@ flowchart TD
           <span class="roadmap-priority p-high"><span></span><span></span><span></span></span>
           <span class="roadmap-row-id">JOS-15</span>
           <span class="roadmap-status completed"></span>
-          <span class="roadmap-row-title">Breastfeed timer — track duration per side (Right/Left)</span>
+          <span class="roadmap-row-title">Breastfeed timer, track duration per side (Right/Left)</span>
           <span class="roadmap-row-tags"><span class="roadmap-tag">Ready to Build</span><span class="roadmap-tag">Feature</span></span>
           <span class="roadmap-row-date">Aug 11</span>
         </a>
