@@ -257,7 +257,74 @@
     gap: 10px;
     margin-top: 20px;
   }.nestlog-case-study .workflow-legend-item { display: flex; gap: 10px; align-items: flex-start; background: var(--paper-raised); border: 1px solid var(--line); border-radius: 10px; padding: 11px 13px; }.nestlog-case-study .workflow-legend-item .swatch { width: 9px; height: 9px; border-radius: 3px; margin-top: 5px; flex-shrink: 0; }.nestlog-case-study .workflow-legend-item strong { font-size: 13.5px; font-weight: 700; display: block; }.nestlog-case-study .workflow-legend-item span { font-size: 12.5px; color: var(--ink-soft); line-height: 1.4; }.nestlog-case-study .loops { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }.nestlog-case-study .loop-row { display: flex; gap: 12px; align-items: baseline; padding: 12px 14px; border-left: 3px solid var(--line-strong); background: var(--paper-raised); border-radius: 0 10px 10px 0; }.nestlog-case-study .loop-row.rose { border-left-color: var(--rose); }.nestlog-case-study .loop-row.plum { border-left-color: var(--plum); }.nestlog-case-study .loop-row .tag { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; }.nestlog-case-study .loop-row p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--ink); }.nestlog-case-study .tool-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }.nestlog-case-study .tool-chips span { font-family: var(--font-mono); font-size: 12px; font-weight: 500; background: var(--paper-raised); border: 1px solid var(--line-strong); color: var(--ink); padding: 5px 10px; border-radius: 999px; }.nestlog-case-study .workflow-subhead { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin: 32px 0 0; }.nestlog-case-study /* ---------- Roadmap ---------- */
-  .roadmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }@media (max-width: 860px) {.nestlog-case-study .roadmap-grid { grid-template-columns: 1fr; } }.nestlog-case-study .roadmap-col { background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }.nestlog-case-study .roadmap-col-head { display: flex; align-items: baseline; gap: 8px; margin: 0 0 14px; }.nestlog-case-study .roadmap-col-head h3 { font-family: var(--font-display); font-size: 17px; font-weight: 600; margin: 0; }.nestlog-case-study .roadmap-col-head span { font-family: var(--font-mono); font-size: 12px; color: var(--ink-soft); background: var(--paper); border: 1px solid var(--line-strong); border-radius: 999px; padding: 1px 8px; }.nestlog-case-study .roadmap-list { display: flex; flex-direction: column; gap: 10px; }.nestlog-case-study .roadmap-item { display: block; text-decoration: none; color: inherit; border-top: 1px solid var(--line); padding-top: 10px; }.nestlog-case-study .roadmap-list .roadmap-item:first-child { border-top: none; padding-top: 0; }.nestlog-case-study .roadmap-item:hover .roadmap-title { text-decoration: underline; }.nestlog-case-study .roadmap-id { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-soft); }.nestlog-case-study .roadmap-title { display: block; font-size: 13.5px; font-weight: 600; color: var(--ink); margin: 2px 0 4px; line-height: 1.35; }.nestlog-case-study .roadmap-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }.nestlog-case-study .roadmap-meta span { font-size: 10.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; }.nestlog-case-study .roadmap-tag-feature { color: var(--brand-blue); background: var(--brand-blue-soft); }.nestlog-case-study .roadmap-tag-bug { color: var(--terracotta); background: var(--terracotta-soft); }.nestlog-case-study .roadmap-tag-process { color: var(--plum); background: var(--plum-soft); }.nestlog-case-study .roadmap-tag-scoping { color: var(--ink-soft); background: var(--line); }.nestlog-case-study .roadmap-tag-ready { color: var(--sage); background: var(--sage-soft); }.nestlog-case-study .roadmap-tag-polish { color: var(--amber); background: var(--amber-soft); }.nestlog-case-study .roadmap-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 13.5px; font-weight: 600; color: var(--sage); text-decoration: none; }.nestlog-case-study .roadmap-link:hover { text-decoration: underline; }.nestlog-case-study .stack-chips { display: flex; flex-wrap: wrap; gap: 7px; }.nestlog-case-study .stack-chips span {
+  .roadmap-list {
+    background: var(--paper-raised); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: var(--shadow-card); overflow: hidden;
+  }
+  .nestlog-case-study .roadmap-group + .roadmap-group { border-top: 1px solid var(--line); }
+  .nestlog-case-study .roadmap-group-head {
+    display: flex; align-items: center; gap: 8px; padding: 11px 18px;
+    background: var(--paper); border-bottom: 1px solid var(--line);
+  }
+  .nestlog-case-study .roadmap-group-head .chevron { font-size: 10px; color: var(--ink-soft); }
+  .nestlog-case-study .roadmap-group-head h3 { font-family: var(--font-display); font-size: 12.5px; font-weight: 700; margin: 0; }
+  .nestlog-case-study .roadmap-count {
+    font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft);
+    background: var(--paper-raised); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px;
+  }
+  .nestlog-case-study .roadmap-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .nestlog-case-study .roadmap-dot.started { background: var(--amber); }
+  .nestlog-case-study .roadmap-dot.unstarted { background: var(--paper); border: 2px solid var(--brand-blue); }
+  .nestlog-case-study .roadmap-dot.backlog { background: var(--paper); border: 1.5px dashed var(--ink-soft); }
+  .nestlog-case-study .roadmap-dot.completed { background: var(--brand-blue); }
+
+  .nestlog-case-study .roadmap-row {
+    display: flex; align-items: center; gap: 12px; padding: 9px 18px;
+    text-decoration: none; color: inherit; border-bottom: 1px solid var(--line);
+    transition: background 0.12s;
+  }
+  .nestlog-case-study .roadmap-row:hover { background: var(--paper); }
+  .nestlog-case-study .roadmap-row:hover .roadmap-row-title { text-decoration: underline; }
+  .nestlog-case-study .roadmap-group:last-child .roadmap-row:last-child { border-bottom: none; }
+
+  .nestlog-case-study .roadmap-priority { display: flex; align-items: flex-end; gap: 1.5px; height: 10px; flex-shrink: 0; }
+  .nestlog-case-study .roadmap-priority span { width: 3px; background: var(--line-strong); border-radius: 1px; }
+  .nestlog-case-study .roadmap-priority span:nth-child(1) { height: 4px; }
+  .nestlog-case-study .roadmap-priority span:nth-child(2) { height: 7px; }
+  .nestlog-case-study .roadmap-priority span:nth-child(3) { height: 10px; }
+  .nestlog-case-study .roadmap-priority.p-high span { background: var(--ink-soft); }
+  .nestlog-case-study .roadmap-priority.p-medium span:nth-child(1),
+  .nestlog-case-study .roadmap-priority.p-medium span:nth-child(2) { background: var(--ink-soft); }
+  .nestlog-case-study .roadmap-priority.p-low span:nth-child(1) { background: var(--ink-soft); }
+
+  .nestlog-case-study .roadmap-row-id {
+    font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft);
+    width: 40px; flex-shrink: 0;
+  }
+  .nestlog-case-study .roadmap-status {
+    width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .nestlog-case-study .roadmap-status.started { background: var(--amber); }
+  .nestlog-case-study .roadmap-status.unstarted { background: var(--paper); border: 2px solid var(--brand-blue); }
+  .nestlog-case-study .roadmap-status.backlog { background: var(--paper); border: 1.5px dashed var(--ink-soft); }
+  .nestlog-case-study .roadmap-status.completed { background: var(--brand-blue); }
+  .nestlog-case-study .roadmap-status.completed::after { content: "\2713"; font-size: 7px; color: var(--paper-raised); font-weight: 900; }
+
+  .nestlog-case-study .roadmap-row-title { flex: 1; font-size: 13.5px; color: var(--ink); }
+  .nestlog-case-study .roadmap-row-tags { display: flex; gap: 6px; flex-shrink: 0; }
+  .nestlog-case-study .roadmap-tag {
+    font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+    background: var(--paper); border: 1px solid var(--line); color: var(--ink-soft); white-space: nowrap;
+  }
+  .nestlog-case-study .roadmap-row-date {
+    font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft);
+    width: 44px; text-align: right; flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .nestlog-case-study .roadmap-row-tags, .nestlog-case-study .roadmap-row-date { display: none; }
+  }
+  .nestlog-case-study .roadmap-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 13.5px; font-weight: 600; color: var(--sage); text-decoration: none; }.nestlog-case-study .roadmap-link:hover { text-decoration: underline; }.nestlog-case-study .stack-chips { display: flex; flex-wrap: wrap; gap: 7px; }.nestlog-case-study .stack-chips span {
     font-size: 12px; font-weight: 700; font-family: var(--font-mono);
     background: var(--paper-raised); border: 1px solid var(--line); border-radius: 999px;
     padding: 5px 11px; color: var(--ink-soft);
@@ -1193,137 +1260,219 @@ flowchart TD
       <h2 class="section-title">Roadmap</h2>
       <p class="section-dek">Pulled straight from the live backlog in Linear.</p>
     </div>
-    <div class="roadmap-grid">
-        <div class="roadmap-col">
-          <div class="roadmap-col-head"><h3>Todo</h3><span>3</span></div>
-          <div class="roadmap-list">
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-41" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-41</span>
-              <span class="roadmap-title">Bug: “Log a moment” button intermittently resizes + fetch error</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-scoping">Needs Scoping</span><span class="roadmap-tag-bug">Bug</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Sep 2</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-13" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-13</span>
-              <span class="roadmap-title">Directed “must-read” flag on a comment, with notification</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-scoping">Needs Scoping</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 4</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-10" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-10</span>
-              <span class="roadmap-title">New entry needs a clear completion/confirmation step</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-scoping">Needs Scoping</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 4</span></span>
-            </a>
-          </div>
+    <div class="roadmap-list">
+
+      <div class="roadmap-group">
+        <div class="roadmap-group-head">
+          <span class="chevron">&#9662;</span>
+          <span class="roadmap-dot unstarted"></span>
+          <h3>Todo</h3>
+          <span class="roadmap-count">3</span>
         </div>
-        <div class="roadmap-col">
-          <div class="roadmap-col-head"><h3>Backlog</h3><span>12</span></div>
-          <div class="roadmap-list">
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-43" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-43</span>
-              <span class="roadmap-title">Rename production branch from claude/baby-tracker-nextjs-setup-9gocr2 to main</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-process">Pre-Commercial</span><span class="roadmap-tag-process">Process</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Sep 2</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-19" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-19</span>
-              <span class="roadmap-title">Reports table needs scalable visualisation as history grows</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-scoping">Needs Scoping</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 24</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-17" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-17</span>
-              <span class="roadmap-title">Analyse feeding patterns by time of day</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-scoping">Needs Scoping</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 18</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-16" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-16</span>
-              <span class="roadmap-title">Allow resuming/editing a breastfeeding session after End Session</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-scoping">Needs Scoping</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 13</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-14" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-14</span>
-              <span class="roadmap-title">Today-at-a-glance summary view (feeds/pees/poops totals)</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-scoping">Needs Scoping</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 6</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-12" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-12</span>
-              <span class="roadmap-title">Surface patterns/themes emerging from comments over time</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-scoping">Needs Scoping</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 4</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-11" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-11</span>
-              <span class="roadmap-title">Search, primarily for comments/notes</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-scoping">Needs Scoping</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 4</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-9" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-9</span>
-              <span class="roadmap-title">Numeric keyboard for number-only fields (mL, etc.)</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-ready">Ready to Build</span><span class="roadmap-tag-bug">Bug</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 4</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-8" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-8</span>
-              <span class="roadmap-title">Edit chip sizing inconsistent with other chips</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-polish">Polish</span><span class="roadmap-tag-ready">Ready to Build</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 4</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-7" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-7</span>
-              <span class="roadmap-title">Enable Google sign-in / sign-up / login</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-ready">Ready to Build</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 4</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-6" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-6</span>
-              <span class="roadmap-title">Fix user chip right-alignment with checkbox row</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-polish">Polish</span><span class="roadmap-tag-ready">Ready to Build</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 4</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-5" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-5</span>
-              <span class="roadmap-title">Remove redundant delete-X on user chip</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-ready">Ready to Build</span><span class="roadmap-tag-bug">Bug</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 4</span></span>
-            </a>
-          </div>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-41/bug-log-a-moment-button-intermittently-resizes-fetch-error" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-high"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-41</span>
+          <span class="roadmap-status unstarted"></span>
+          <span class="roadmap-row-title">Bug: &quot;Log a moment&quot; button intermittently resizes + fetch error</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Needs Scoping</span><span class="roadmap-tag">Bug</span></span>
+          <span class="roadmap-row-date">Sep 2</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-13/directed-must-read-flag-on-a-comment-eg-jen-with-notification" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-medium"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-13</span>
+          <span class="roadmap-status unstarted"></span>
+          <span class="roadmap-row-title">Directed &quot;must-read&quot; flag on a comment, with notification</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Needs Scoping</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 4</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-10/new-entry-needs-a-clear-completionconfirmation-step" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-high"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-10</span>
+          <span class="roadmap-status unstarted"></span>
+          <span class="roadmap-row-title">New entry needs a clear completion/confirmation step</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Needs Scoping</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 4</span>
+        </a>
+      </div>
+
+      <div class="roadmap-group">
+        <div class="roadmap-group-head">
+          <span class="chevron">&#9662;</span>
+          <span class="roadmap-dot backlog"></span>
+          <h3>Backlog</h3>
+          <span class="roadmap-count">12</span>
         </div>
-        <div class="roadmap-col">
-          <div class="roadmap-col-head"><h3>Done</h3><span>8</span></div>
-          <div class="roadmap-list">
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-46" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-46</span>
-              <span class="roadmap-title">Process: never hand out a guessed Vercel preview URL</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-process">Process</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Sep 2</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-45" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-45</span>
-              <span class="roadmap-title">Timeline's deleted-entries banner never says “Recently Deleted”</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-polish">Polish</span><span class="roadmap-tag-ready">Ready to Build</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Sep 2</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-44" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-44</span>
-              <span class="roadmap-title">Replace native browser confirm() dialog on delete with custom modal</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-polish">Polish</span><span class="roadmap-tag-ready">Ready to Build</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Sep 2</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-42" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-42</span>
-              <span class="roadmap-title">Bug: Bottle feed ml amount not saving unless another element is tapped (data loss)</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-ready">Ready to Build</span><span class="roadmap-tag-bug">Bug</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Sep 2</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-21" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-21</span>
-              <span class="roadmap-title">Home/log screen: paginate long timeline by day</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-polish">Polish</span><span class="roadmap-tag-ready">Ready to Build</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 26</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-20" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-20</span>
-              <span class="roadmap-title">Restore deleted moments/entries (undo accidental deletion)</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-ready">Ready to Build</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 26</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-18" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-18</span>
-              <span class="roadmap-title">Reports page date range doesn't extend to today</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-ready">Ready to Build</span><span class="roadmap-tag-bug">Bug</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 23</span></span>
-            </a>
-            <a class="roadmap-item" href="https://linear.app/josephemmi/issue/jos-15" target="_blank" rel="noopener">
-              <span class="roadmap-id">JOS-15</span>
-              <span class="roadmap-title">Breastfeed timer — track duration per side (Right/Left)</span>
-              <span class="roadmap-meta"><span class="roadmap-tag-ready">Ready to Build</span><span class="roadmap-tag-feature">Feature</span><span style="font-size:11px;color:var(--ink-soft);text-transform:none;font-weight:400;letter-spacing:normal;background:none;padding:0">Aug 11</span></span>
-            </a>
-          </div>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-43/rename-production-branch-from-claudebaby-tracker-nextjs-setup-9gocr2" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-medium"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-43</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Rename production branch from claude/baby-tracker-nextjs-setup-9gocr2 to main</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Pre-Commercial</span><span class="roadmap-tag">Process</span></span>
+          <span class="roadmap-row-date">Sep 2</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-19/reports-table-needs-scalable-visualisation-as-history-grows" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-medium"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-19</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Reports table needs scalable visualisation as history grows</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Needs Scoping</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 24</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-17/analyse-feeding-patterns-by-time-of-day" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-low"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-17</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Analyse feeding patterns by time of day</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Needs Scoping</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 18</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-16/allow-resumingediting-a-breastfeeding-session-after-end-session" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-medium"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-16</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Allow resuming/editing a breastfeeding session after End Session</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Needs Scoping</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 13</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-14/today-at-a-glance-summary-view-feedspeespoops-totals" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-medium"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-14</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Today-at-a-glance summary view (feeds/pees/poops totals)</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Needs Scoping</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 6</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-12/surface-patternsthemes-emerging-from-comments-over-time" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-low"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-12</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Surface patterns/themes emerging from comments over time</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Needs Scoping</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 4</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-11/search-primarily-for-commentsnotes" target="_blank" rel="noopener">
+          <span class="roadmap-priority"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-11</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Search, primarily for comments/notes</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Needs Scoping</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 4</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-9/numeric-keyboard-for-number-only-fields-ml-etc" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-medium"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-9</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Numeric keyboard for number-only fields (mL, etc.)</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Ready to Build</span><span class="roadmap-tag">Bug</span></span>
+          <span class="roadmap-row-date">Aug 4</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-8/edit-chip-sizing-inconsistent-with-other-chips" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-low"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-8</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Edit chip sizing inconsistent with other chips</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Polish</span><span class="roadmap-tag">Ready to Build</span></span>
+          <span class="roadmap-row-date">Aug 4</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-7/enable-google-sign-in-sign-up-login" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-medium"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-7</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Enable Google sign-in / sign-up / login</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Ready to Build</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 4</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-6/fix-user-chip-right-alignment-with-checkbox-row" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-low"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-6</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Fix user chip right-alignment with checkbox row</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Polish</span><span class="roadmap-tag">Ready to Build</span></span>
+          <span class="roadmap-row-date">Aug 4</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-5/remove-redundant-delete-x-on-user-chip" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-low"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-5</span>
+          <span class="roadmap-status backlog"></span>
+          <span class="roadmap-row-title">Remove redundant delete-X on user chip</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Ready to Build</span><span class="roadmap-tag">Bug</span></span>
+          <span class="roadmap-row-date">Aug 4</span>
+        </a>
+      </div>
+
+      <div class="roadmap-group">
+        <div class="roadmap-group-head">
+          <span class="chevron">&#9662;</span>
+          <span class="roadmap-dot completed"></span>
+          <h3>Done</h3>
+          <span class="roadmap-count">8</span>
         </div>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-46/process-never-hand-out-a-guessed-vercel-preview-url" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-low"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-46</span>
+          <span class="roadmap-status completed"></span>
+          <span class="roadmap-row-title">Process: never hand out a guessed Vercel preview URL</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Process</span></span>
+          <span class="roadmap-row-date">Sep 2</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-45/timelines-deleted-entries-banner-never-says-recently-deleted" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-low"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-45</span>
+          <span class="roadmap-status completed"></span>
+          <span class="roadmap-row-title">Timeline's deleted-entries banner never says &quot;Recently Deleted&quot;</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Polish</span><span class="roadmap-tag">Ready to Build</span></span>
+          <span class="roadmap-row-date">Sep 2</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-44/replace-native-browser-confirm-dialog-on-delete-with-custom-modal" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-medium"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-44</span>
+          <span class="roadmap-status completed"></span>
+          <span class="roadmap-row-title">Replace native browser confirm() dialog on delete with custom modal</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Polish</span><span class="roadmap-tag">Ready to Build</span></span>
+          <span class="roadmap-row-date">Sep 2</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-42/bug-bottle-feed-ml-amount-not-saving-unless-another-element-is-tapped" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-high"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-42</span>
+          <span class="roadmap-status completed"></span>
+          <span class="roadmap-row-title">Bug: Bottle feed ml amount not saving unless another element is tapped (data loss)</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Ready to Build</span><span class="roadmap-tag">Bug</span></span>
+          <span class="roadmap-row-date">Sep 2</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-21/homelog-screen-paginate-long-timeline-by-day" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-medium"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-21</span>
+          <span class="roadmap-status completed"></span>
+          <span class="roadmap-row-title">Home/log screen: paginate long timeline by day</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Polish</span><span class="roadmap-tag">Ready to Build</span></span>
+          <span class="roadmap-row-date">Aug 26</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-20/restore-deleted-momentsentries-undo-accidental-deletion" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-high"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-20</span>
+          <span class="roadmap-status completed"></span>
+          <span class="roadmap-row-title">Restore deleted moments/entries (undo accidental deletion)</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Ready to Build</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 26</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-18/reports-page-date-range-doesnt-extend-to-today" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-high"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-18</span>
+          <span class="roadmap-status completed"></span>
+          <span class="roadmap-row-title">Reports page date range doesn't extend to today</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Ready to Build</span><span class="roadmap-tag">Bug</span></span>
+          <span class="roadmap-row-date">Aug 23</span>
+        </a>
+        <a class="roadmap-row" href="https://linear.app/josephemmi/issue/JOS-15/breastfeed-timer-track-duration-per-side-rightleft" target="_blank" rel="noopener">
+          <span class="roadmap-priority p-high"><span></span><span></span><span></span></span>
+          <span class="roadmap-row-id">JOS-15</span>
+          <span class="roadmap-status completed"></span>
+          <span class="roadmap-row-title">Breastfeed timer — track duration per side (Right/Left)</span>
+          <span class="roadmap-row-tags"><span class="roadmap-tag">Ready to Build</span><span class="roadmap-tag">Feature</span></span>
+          <span class="roadmap-row-date">Aug 11</span>
+        </a>
+      </div>
+
     </div>
     <a class="roadmap-link" href="https://linear.app/josephemmi/project/momentini-44315b2952c7" target="_blank" rel="noopener">See the full board &rarr;</a>
   </div>
