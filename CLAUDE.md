@@ -1,3 +1,5 @@
+@PROJECT_LOG.md
+
 ## Work tracking
 
 - Work for this repo (Joseph's personal site) is tracked in **GitHub
