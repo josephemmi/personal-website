@@ -11,6 +11,50 @@ Add a new entry at the top whenever a meaningful unit of work wraps up
 
 ---
 
+## 2026-09-15
+
+**Done:**
+- Fixed two bugs Joseph found on a real phone, both from screenshots he
+  sent: (1) the site had no mobile navigation anywhere — the shared
+  header's `.nav-links` were just hidden below 780px with nothing to
+  replace them, across all 16 pages. Added a hamburger button and
+  dropdown panel to the shared header (new `assets/js/nav.js`, mirroring
+  the existing `lightbox.js` pattern), closing on link tap or
+  tap-outside. (2) the Momentini case study's content sections rendered
+  black and unreadable in light mode. Root cause: the page's own theme
+  toggle only ever drove the shared header's colors — the case study's
+  own scoped design tokens (`--paper`/`--ink`/etc., left over from the
+  original standalone Claude Artifact this page was ported from) were
+  independently governed by the device's OS dark-mode preference and a
+  `data-theme` attribute nothing ever set. A prior session had added a
+  `html.dark`-scoped mirror rule to fix this but never removed the
+  competing OS-preference mechanism, so the bug persisted in a
+  reshaped form. Removed the leftover mechanism outright, leaving the
+  `html.dark` rule as the only source of truth. Verified both fixes
+  locally with Playwright (mobile + desktop viewports, and a simulated
+  OS-dark-preference device to reproduce the exact failure mode) since
+  the deployed site itself isn't reachable from this session. Opened as
+  [PR #8](https://github.com/josephemmi/personal-website/pull/8), not
+  yet merged, pending Joseph's review.
+- `retro`: two findings, both fixed as CLAUDE.md notes (docs-only,
+  Joseph approved both): mobile QA should explicitly check the header
+  nav is reachable, not just the component being changed (added to
+  Local preview); and `work/momentini.html` now has exactly one
+  dark-mode mechanism, flagged as a gotcha so a future session doesn't
+  reintroduce the OS-preference fallback that caused this bug.
+
+**In flight / open:**
+- [PR #8](https://github.com/josephemmi/personal-website/pull/8):
+  mobile nav + Momentini dark-mode fix, awaiting Joseph's review before
+  merging (auto-deploys to production on merge, no staging gate).
+
+**Worth knowing:**
+- The site previously had zero mobile navigation and nothing caught it
+  until a real device screenshot — see the new CLAUDE.md note under
+  Local preview.
+
+---
+
 ## 2026-09-10
 
 **Done:**

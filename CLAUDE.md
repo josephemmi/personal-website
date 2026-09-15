@@ -35,6 +35,13 @@
   Playwright at a real mobile viewport width (e.g. 390px) rather than
   eyeballing devtools — confirms the actual computed CSS, not just
   what devtools claims is applied.
+- **When doing mobile/responsive QA, explicitly check that the header
+  nav itself is reachable** (hamburger opens, all links visible), not
+  just that the component you were actually changing renders correctly.
+  The whole site shipped with no mobile nav at all (`.nav-links` was
+  just `display: none` below 780px, no replacement) for a while before
+  it was caught on a real phone — none of the prior mobile-viewport
+  checks in this repo happened to look at the header itself.
 
 ## Writing & copy conventions
 
@@ -81,3 +88,19 @@
   - Email (`hello@josephemmi.com`) runs through Zoho Mail via MX/TXT
     records on the same domain — unrelated to the site, don't touch
     those when working on DNS.
+- **`work/momentini.html`'s case-study content has exactly one
+  dark-mode mechanism: the `html.dark .nestlog-case-study` rule near
+  the end of its inline `<style>` block.** That content was originally
+  ported from a standalone Claude Artifact, which had its own
+  independent theme-switching (a `data-theme` attribute plus a
+  `prefers-color-scheme` media query) layered on top of the scoped
+  `--paper`/`--ink`/etc. design tokens. A prior session added the
+  `html.dark`-scoped mirror rule to tie the page's real toggle button to
+  those tokens, but left the original OS-preference mechanism in place
+  instead of removing it — so the two competed, and the content's actual
+  rendered theme depended on the device's OS dark-mode setting rather
+  than the toggle, occasionally producing a light header over dark
+  (unreadable) content. Fixed by deleting the `data-theme`/
+  `prefers-color-scheme` mechanism outright. If this page's colors need
+  touching again, don't reintroduce an OS-preference fallback — the
+  `html.dark`-scoped rule is meant to be the only source of truth.
