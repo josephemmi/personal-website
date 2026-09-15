@@ -113,6 +113,7 @@ header.site-nav {
   border-bottom: 1px solid var(--border);
 }
 .nav-inner {
+  position: relative;
   max-width: var(--container-wide); margin: 0 auto; padding: 0 24px;
   display: flex; align-items: center; justify-content: space-between;
   height: 64px;
@@ -134,7 +135,27 @@ header.site-nav {
 }
 .icon-btn:hover { background: var(--muted); }
 .icon-btn svg { width: 17px; height: 17px; }
-@media (max-width: 780px) { .nav-links { display: none; } }
+
+/* mobile nav toggle — hidden on desktop, shown below the .nav-links breakpoint */
+.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; padding: 0; }
+.nav-toggle span { display: block; width: 18px; height: 2px; background: var(--foreground); border-radius: 2px; transition: transform 0.2s ease, opacity 0.2s ease; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 780px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-links {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--background); border-bottom: 1px solid var(--border);
+    padding: 6px 24px 14px; box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px 4px; border-radius: 0; border-bottom: 1px solid var(--border); }
+  .nav-links a:last-child { border-bottom: none; }
+}
 
 /* ---------- footer ---------- */
 footer.site-footer { border-top: 1px solid var(--border); }
