@@ -11,6 +11,48 @@ Add a new entry at the top whenever a meaningful unit of work wraps up
 
 ---
 
+## 2026-09-20
+
+**Done:**
+- Nestlog case study navigation: replaced the case study's own sticky,
+  full-width "jump to section" bar with a small "Contents" chip +
+  dropdown, so mobile no longer shows two identical-looking hamburgers
+  stacked on top of each other (the site's real header nav and the
+  case study's own in-page nav). Explored the options first as
+  interactive HTML prototypes (a horizontal-scroll pill strip vs. the
+  contents chip) before building either, at Joseph's request; he chose
+  the chip. Global site header/hamburger untouched throughout.
+- Roadmap section: reordered status groups to In Progress → Todo →
+  Backlog → Done (Joseph's explicit call), refreshed all ticket data
+  from live Linear (momentini project, team JOS — counts moved from
+  2/2/10/12 to 2/2/8/18 as tickets shipped), and confirmed there are no
+  Cancelled tickets currently so no empty group is rendered. Removed
+  the "See the full board" link and the case study's own footer block
+  (brand blurb + tech-stack chips).
+- Explored, then deliberately dropped, a "tech stack" mention/section
+  (chips, a small callout, a dedicated section — prototyped several
+  placements). Joseph's call: since the whole point of the build is
+  "Claude picked the stack based on my requirements," explaining the
+  selection reasoning would be explaining a decision he didn't
+  actually make — so there's nothing worth writing there. Nothing
+  shipped for this; case closed.
+- Merged as [PR #10](https://github.com/josephemmi/personal-website/pull/10).
+- `retro`: one finding — the roadmap refresh has now happened twice
+  (Sep 15 and this session) with the same undocumented mapping rules
+  re-derived from scratch each time (priority-tier collapsing, tag
+  ordering, project vs. team scope, which date field is shown). Fixed
+  as a CLAUDE.md gotcha (Joseph's call) rather than building a refresh
+  script, which was offered as the alternative if this keeps costing
+  time.
+
+**Worth knowing:**
+- The Linear connector disconnected and reconnected mid-session
+  (unrelated to this repo) — if a future session can't reach Linear
+  for a roadmap refresh, that's a connector auth issue to retry later,
+  not a sign the data or the integration is broken.
+
+---
+
 ## 2026-09-15
 
 **Done:**

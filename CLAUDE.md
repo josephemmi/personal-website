@@ -104,3 +104,26 @@
   `prefers-color-scheme` mechanism outright. If this page's colors need
   touching again, don't reintroduce an OS-preference fallback — the
   `html.dark`-scoped rule is meant to be the only source of truth.
+- **Refreshing `work/momentini.html`'s Roadmap section from Linear has a
+  few mapping rules that aren't visible from the API response alone —
+  write them down here instead of re-deriving them from the old markup
+  each time (this has now happened twice, in separate sessions).**
+  - Scope to the `momentini` Linear *project*
+    (`momentini-44315b2952c7`), not the whole `JOS` team — the team also
+    contains onboarding checklist issues (`JOS-1` through `JOS-4`) and
+    unrelated pre-commercial backlog items that aren't part of this
+    roadmap.
+  - Linear has 5 priority levels (Urgent/High/Medium/Low/No priority)
+    but the site's `.roadmap-priority` bar only has 3 visual tiers:
+    Urgent *and* High both map to `p-high`, Medium → `p-medium`,
+    Low → `p-low`, No priority → no modifier class at all.
+  - Tag order matters and Linear's API doesn't guarantee it: render the
+    "stage" label (`Needs Scoping` / `Ready to Build` / `Pre-Commercial`)
+    before the "type" label (`Feature` / `Bug` / `Polish` / `Process`),
+    re-sorting on import if needed.
+  - The `roadmap-row-date` shown is each ticket's *created* date, not
+    its last-updated date.
+  - Status groups render in the order In Progress → `Todo` → `Backlog`
+    → `Done` (Joseph's explicit call, not the Linear board's own order)
+    — only render a `Cancelled` group when there's at least one
+    cancelled ticket; don't leave an empty one.
