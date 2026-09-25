@@ -11,6 +11,40 @@ Add a new entry at the top whenever a meaningful unit of work wraps up
 
 ---
 
+## 2026-09-25
+
+**Done:**
+- A round of `work.html` copy and layout edits, each requested
+  incrementally: removed the placeholder "Date TBC" from every row of
+  the "Also spoken at" speaking list; reworded the page `<h1>` to "Some
+  of my work over the years, inside large organisations and on my
+  own"; replaced the placeholder video caption with "Speaking at UX
+  Glasgow. Opens on YouTube."; simplified the CV request note to "I'll
+  reply to you directly, usually within a day or two."; and updated
+  the lede paragraph copy (dropped "mostly" and the "(Agatha)"
+  parenthetical).
+- Converted the Momentini/Agatha "Personal & independent" cards from
+  stacked full-width `.cs-row` items to a responsive 2-column
+  `.personal-grid` (collapses to 1 column under 700px, matching the
+  page's existing breakpoint), per a design reference Joseph supplied
+  from an earlier design pass ("Option C"): a 4px accent bar across
+  the top of each card, and the first badge in each card's tag row
+  replaced with a solid-accent status chip ("In Production" /
+  "Discontinued") instead of repeating "Personal Build"/"Founder",
+  which already shows in the meta line above the title. Real
+  screenshots untouched; Professional case studies, Public speaking,
+  nav and footer untouched. Verified locally with Playwright at
+  desktop and 390px mobile, light and dark mode.
+- Merged as [PR #12](https://github.com/josephemmi/personal-website/pull/12).
+- `retro`: one finding, filed rather than fixed inline (Joseph's
+  call) — `assets/css/style.css`'s header comment cites a "Calm,
+  editorial, human" style guide doc as the site's design source of
+  truth, but no such doc exists in the repo, so extending the design
+  system means reverse-engineering rationale from raw CSS each time.
+  Filed as [issue #13](https://github.com/josephemmi/personal-website/issues/13).
+
+---
+
 ## 2026-09-20
 
 **Done:**
